@@ -1,0 +1,310 @@
+<!-- PLAN-IT Top 10 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+
+  <title>Top 10 Place</title>
+
+  <style>
+
+    * {
+      margin: 0; /* 마진값 초기화 */
+      padding: 0; /* 패딩값 초기화 */
+    }
+    
+    header {
+      width: 100%;
+      height: 80px;
+    }
+
+    main {
+      height: 1800px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    #container {
+      margin: 0px auto;  /* 화면 테두리와 제목 간격 0px */
+      width: 1200px; /* width를 1200px/100% 중 뭘해야하지 ,,, */
+    }
+
+    /* 로고 */
+    #logo {
+      color: #002C7F;
+      float: left;
+      margin-left: -50px; /* 왼쪽에서 30px 띄워라 */
+      margin-top : 12px; 
+    }
+
+    /* 사용자 nav */
+    #topMenu-user {
+      float: right;
+      margin-top: 40px;
+      margin-right: -50px;
+    }
+
+    #topMenu-user li {
+      float: left;
+      padding-left: 30px; /*nav 간격*/
+    }
+
+    #topMenu-user a {
+      text-decoration: none;
+      color: #002C7F;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+
+    #topMenu-user a:hover {
+      color: red; /* 마우스 포인터 올리면 색상 변화*/
+    }
+
+    /* 이미지 타이틀 */
+    .img-title {
+      margin-top: 80px;
+      margin-bottom: 30px;
+    }
+  
+    .prod-list {
+      list-style:none;
+      padding:0;  
+    }
+
+    .prod-list li {
+      float: left;
+      padding: 0;
+      margin: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .prod-list img {
+      margin: 0px;
+      padding:0;
+      float:left;
+      z-index:5;
+    } 
+
+    /* 라인 */
+    .line {
+      border-top: 1px solid white;
+      margin: 1px -158px;
+      padding-top: 200px;
+      padding-bottom: 100px;
+    }
+
+    /* 푸터 */
+    footer {
+        margin-left: -159px;
+        margin-right: -159px;
+        height: 80px;
+        border-top: 1px solid lightgray;
+        background-color: #f8f9fa;
+        padding: 1.8em 0;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .footer-copyright {
+        font-size: 0.9rem;
+        color: #545e6f;
+      }
+    </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <header>
+  <!-- 홈페이지 로고 -->
+      <div id="logo">
+        <h1>Plan-it</h1>
+      </div>
+      
+  <!-- 메뉴(내비게이션) 영역 -->
+      <nav>
+        <ul id="topMenu-user">
+          <li><a href="#">로그인</a></li>
+          <li><a href="#">회원가입</a></li>
+          <li><a href="#">마이페이지</a></li>
+          <li><a href="#">커뮤니티 채팅방</a></li>
+        </ul>
+      </nav>
+      
+    </header>
+
+    <main>
+
+      <ul class="prod-list">
+        <div class = "img-title">
+          <h4><b>인기 체험명소 Top 10</b></h4>
+        </div>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+          <!-- <div class="caption">
+            <h2>상품 1</h2>
+            <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div> -->
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+      </ul>
+
+      <div class="line"></div>
+
+      <ul class="prod-list">
+        <div class = "img-title">
+          <h4><b>인기 호텔 Top 10</b></h4>
+        </div>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+      </ul>
+
+      <div class="line"></div>
+
+      <ul class="prod-list">
+        <div class = "img-title">
+          <h4><b>인기 맛집 Top 10</b></h4>
+        </div>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+      </ul>
+
+      <div class="line"></div>
+
+      <ul class="prod-list">
+        <div class = "img-title">
+          <h4><b>인기 카페 Top 10</b></h4>
+        </div>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+        <li>
+          <img src="./../../images/03.jpg" height="120px">
+        </li>
+      </ul>
+
+      
+
+    </main>
+
+    <footer>
+      <div class="inner">
+        <div class="footer-copyright">@copyright 2023. All Rights Reserved</div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
