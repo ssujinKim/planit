@@ -1,0 +1,432 @@
+<!-- 회원가입 페이지 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta %@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+    <meta %session.invalidate();%>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+
+    <title>회원가입</title>
+
+      <!--          script 선언          -->
+      <script src="https://code.jquery.com/jquery-3.1.1min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      
+  </head>
+
+  <style>
+    .box{
+      text-align: center;
+    }
+
+    .form_wrapper {
+      width: 550px;
+      display: inline-block;
+      text-align: left;
+      margin: 20px; 
+      padding: 100px;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding-top: 20px;
+      padding-bottom: 80px;
+      background-color: rgb(234, 234, 234);
+    }
+
+    .form_wrapper > h1 {
+        color:#002C7F;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    .form_title {
+        margin: 3px;
+        margin-left: 30px;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .sign_up { /* 상자 */
+      padding: 10px;
+      width: 278px;
+      margin: 3px;
+      border: 1px solid lightgray;
+      margin-bottom: 20px;
+      margin-left: 30px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .sign_up_id {
+      padding: 10px;
+      width: 180px;
+      margin: 3px;
+      border: 1px solid lightgray;
+      margin-bottom: 20px;
+      margin-left: 30px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    #btnOverlapped {
+      font-size: 13px;
+      padding-top: 7px;
+      padding-bottom: 8px;
+      width: 90px;
+    }
+
+    .sign_up_birth {
+      padding: 10px;
+      width: 180px;
+      margin: 3px;
+      border: 1px solid lightgray;
+      margin-bottom: 20px;
+      margin-left: 30px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+
+    .btn-group { /* 성별 버튼 */
+      /* width: 91px; */
+      height: 38px;
+      margin-bottom: 1px;
+    }
+
+    .btn { /* 성별 버튼 가운데 맞춤 */
+      font-size: 15px;
+      padding-top: 7px;
+    }
+
+    .signup_button { /* 회원가입 버튼 */
+        padding: 10px;
+        width: 300px; 
+        margin: 3px;
+        margin-top: 30px;
+        margin-bottom: 100px;
+        background-color: #002C7F;
+        color: white;
+        font-size: 18px;
+        /* text-align: center; */
+    }
+
+    /* table{
+      margin-left: auto; 
+      margin-right: auto;
+      border: none;
+    } */
+    /* td{
+      padding: 5px;
+    } */
+  </style>
+
+
+
+  <script>
+  function signUpValidation(){
+    var id = document.SignupForm.id.value;
+    var hid = document.SignupForm.h_id.value;
+    var pw1 = document.SignupForm.pw.value;
+    var pw2 = document.SignupForm.pw_check.value;
+    var name = document.SignupForm.name.value;
+    var birth = document.SignupForm.birth.value;
+    var gender = document.getElementsByName("gender");
+    var selectGen = "";
+    var phone = document.SignupForm.phone.value;
+    var email = document.SignupForm.email.value;
+    
+    //최소 한개의 영문, 숫자, 특수문자 포함(정규표현식)
+    var idv=/^[a-z0-9_.]{4,}$/
+    if(!idv.test(id)) {
+        alert("ID는 4자 이상의 영문, 숫자로 이루어진 문자여야 합니다.")
+        document.SignupForm.id.focus();
+        return false;
+    }
+    
+    var pwv=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{4,}$/
+    if(!pwv.test(pw1)) {
+        alert("비밀번호는 4자 이상의 영문, 숫자, 특수문자로 이루어진 문자여야 합니다.")
+        document.SignupForm.pw.focus();
+        return false;
+    }
+    if(pw1 != pw2) {
+        alert("비밀번호가 일치하지 않습니다.");
+        document.SignupForm.pw_check.focus();
+        return false;
+    }
+    
+    if(name == "") {
+        alert("이름을 입력해주세요.");
+        document.SignupForm.name.focus();
+        return false;
+    }
+    
+    //휴대폰번호 검사
+    if(phone == "") {
+        alert("휴대폰 번호를 입력하세요.");
+        document.SignupForm.phone.focus();
+        return false;
+    }
+    
+    //이메일 검사
+    if(email == "") {
+        alert("이메일을 입력하세요.");
+        document.SignupForm.email.focus();
+        return false;
+    }
+    
+    // 생년월일 검사
+    if(birth == "") {
+        alert("생년월일을 입력하세요.");
+        return false;
+    }
+
+    //성별 확인
+    for(var i=0; i<gender.length; i++) {
+        if(gender[i].checked) {
+          selectGen=gender[i].value;
+          break;
+        }
+    }
+    if(selectGen == "") {
+        alert("성별을 선택해주세요");
+        return false;
+    }
+
+    if(hid=="") {
+        alert("아이디 중복검사를 실행해주세요.");
+        return false;
+    }
+    
+    return true;
+  }
+  </script>
+
+  <script type="text/javascript">
+  function fn_overlapped(){
+        
+    var _id = $("#id").val();
+      
+      if(_id==''){
+        alert("ID를 입력하세요");
+        return;
+      }
+    
+      $.ajax({
+        type:"post",
+        async:false,  
+        url:"overlapped.jsp",
+        dataType:"text",
+        data: {id:_id},
+        success:function (data){
+            console.log(data.replace(/(<([^>]+)>)/ig,""));
+            
+            //alert(data);
+            
+            if(data.includes("false")){
+                alert("사용할 수 있는 ID입니다.");
+                $('#btnOverlapped').prop("disabled", true);
+                $('#id').prop("disabled", true);
+                $('#h_id').val(_id);
+            }else{
+              alert("사용할 수 없는 ID입니다.");
+            }
+        },
+        
+        error:function(data,textStatus){
+            alert("에러가 발생했습니다. " + textStatus);ㅣ
+        },
+        complete:function(data,textStatus){
+            //alert("작업을 완료했습니다");
+        }
+      })  //end ajax    
+  }   
+
+  </script>
+
+  <body>
+
+    <section id="one" class="one">
+      <div class="box">
+          <!-- <header class="align-center">
+            <h2>회원가입</h2>
+          </header> -->
+
+          <div class="form_wrapper">
+            <h1><b>Plan-it</b></h1>
+            <form name="SignupForm" action="./signUpCheck.jsp" onSubmit="return signUpValidation();">
+
+              <!-- 아이디 -->
+              <div class = "form_box">
+
+                <div class = "form_title">
+                  <label for = "id_label" class = "form_label"><b>아이디</b></label>
+                </div>
+
+                <div class = "check">
+                  <input type="text" class="sign_up_id" id="id_label" placeholder="아이디를 입력해주세요." title="아이디 (영문, 숫자 4~20자)" maxlength="20" required>
+                  <input type="hidden" name="h_id"  id="h_id" />
+                  <input type="button" id="btnOverlapped" value="중복확인" onClick="fn_overlapped()" />
+                </div>
+              </div>
+
+              <!-- 비밀번호 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "pw_label" class = "form_label"><b>비밀번호</b></label>
+                </div>
+                <div class = "check">
+                  <input type="password" class="sign_up" id="pw_label" name="pw" placeholder="비밀번호를 입력해주세요. (4자 이상)" title="비밀번호 (4자 이상)" required>
+                </div>
+              </div>
+
+              <!-- 비밀번호 확인 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "pwcheck_label" class = "form_label"><b>비밀번호 확인</b></label>
+                </div>
+                <div class = "check">
+                  <input type="password" class="sign_up" id="pwcheck_label" placeholder="비밀번호를 한 번 더 입력해주세요." title="비밀번호 확인 (비밀번호와 동일한 값)" required>
+                </div>
+              </div>
+
+              <!-- 이름 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "name_label" class = "form_label"><b>이름</b></label>
+                </div>
+                <div class = "check">
+                  <input type="text" class="sign_up" id="name_label" name="name" pattern="[가-힣]{2,10}" placeholder="이름을 입력해주세요." title="한글 실명" required>
+                </div>
+              </div>
+
+              <!-- 전화번호 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "phone_label" class = "form_label"><b>휴대폰 번호</b></label>
+                </div>
+                <div class = "check">
+                  <input type="tel" class="sign_up" id="phone_label" name="phone" pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})|([0][0-9]{10})" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required>
+                </div>
+              </div>
+
+              <!-- 이메일 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "email_label" class = "form_label"><b>이메일</b></label>
+                </div>
+                <div class = "check">
+                  <input type="email" class="sign_up" id="email_label" name="email" placeholder="이메일을 입력해주세요." title="이메일 주소 (xxx@xxxxx.xxx 형식)" required>
+                </div>
+              </div>
+
+              <!-- 생년월일/성별 -->
+              <div class = "form_box">
+                <div class = "form_title">
+                  <label for = "birth_label" class = "form_label"><b>생년월일 / 성별</b></label>
+                </div>
+                <div class = "check">
+                  <input type="date" class="sign_up_birth" id="birth_label" name="birth" placeholder="생년월일" onclick="setMaxDate()" min="1900-01-01" required>
+                  <div class="btn-group btn-group-sm">
+                    <!-- 부트스트랩 라디오버튼 토글버튼 -->
+                    <input type="radio" class="btn-check" name="gender" id="man" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="man">남자</label>
+                    
+                    <input type="radio" class="btn-check" name="gender" id="woman" autocomplete="off">
+                    <label class="btn btn-outline-secondary" for="woman">여자</label>
+                    </div>
+                </div>
+              </div>
+
+              <!-- 성별 -->
+              <!-- <div class = "form_box">
+                <div class = "form_title"> -->
+                  <!-- <label for = "pw_label" class = "form_label"><b>성별</b></label> -->
+                <!-- </div>
+                <div class="btn-group btn-group-sm"> -->
+                <!-- 부트스트랩 라디오버튼 토글버튼 -->
+                <!-- <input type="radio" class="btn-check" name="gender" id="man" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="man">남자</label>
+                
+                <input type="radio" class="btn-check" name="gender" id="woman" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="woman">여자</label>
+                </div> -->
+
+                
+                <!-- 부트스트랩 라디오 -->
+                <!-- <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="man" value="남">
+                  <label class="form-check-label" for="man">남자</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="gender" id="woman" value="여">
+                  <label class="form-check-label" for="woman">여자</label>
+                </div> -->
+
+                <!-- 기본 라디오 -->
+                <!-- <div class = "check">
+                  <input type="radio" class="sign_up" id="man" name="gender" value="남"><label for="man">남자</label>
+                  <input type="radio" class="sign_up" id="woman" name="gender" value="여"><label for="woman">여자</label>
+                </div> -->
+              </div>
+
+
+              
+                <!-- <table>
+                <tr><td><b>아이디</b></td>
+                <td><input type="text" class="sign_up" id="id" placeholder="아이디를 입력해주세요. (영문, 숫자 4~20자)" title="아이디 (영문, 숫자 4~20자)" maxlength="20" required></td>
+                <td><input type="hidden" name="h_id"  id="h_id" />
+                <input type="button"  id="btnOverlapped" value="중복확인" onClick="fn_overlapped()" /></td></tr>
+                
+                <tr><td><b>비밀번호</b></td>
+                <td colspan=2><input type="password" class="sign_up" id="pw" name="pw" placeholder="비밀번호를 입력해주세요. (4자 이상)" title="비밀번호 (4자 이상)" required></td>
+                </tr>
+                
+                <tr><td><b>비밀번호 확인</b></td>
+                <td colspan=2><input type="password" class="sign_up" id="pw_check" placeholder="비밀번호를 한 번 더 입력해주세요." title="비밀번호 확인 (비밀번호와 동일한 값)" required></td>
+                </tr>
+                
+                <tr><td><b>이름</b></td>
+                <td colspan=2><input type="text" class="sign_up" id="name" name="name" pattern="[가-힣]{2,10}" placeholder="이름을 입력해주세요." title="한글 실명" required></td>
+                </tr>          
+                
+                <tr><td><b>휴대폰 번호</b></td>
+                <td colspan=2><input type="tel" class="sign_up" id="phone" name="phone" pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})|([0][0-9]{10})" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required></td>
+                </tr>
+                
+                <tr><td><b>이메일</b></td>
+                <td colspan=2><input type="email" class="sign_up" id="email" name="email" placeholder="이메일을 입력해주세요." title="이메일 주소 (xxx@xxxxx.xxx 형식)" required></td>
+                </tr>
+
+                <tr><td><b>생년월일</b></td>
+                <td colspan=2><input type="date" class="sign_up" id="birth" name="birth" placeholder="생년월일" onclick="setMaxDate()" min="1900-01-01" required></td>
+                </tr>
+              
+                <tr><td><b>성별</b></td>
+                <td><input type="radio" class="sign_up" id="man" name="gender" value="남"><label for="man">남자</label></td>
+                <td><input type="radio" class="sign_up" id="woman" name="gender" value="여"><label for="woman">여자</label></td>
+                </tr> -->
+                
+                <!-- <table>
+                <tr><td><button onclick="history.back()" class="button alt">취소</button></td>
+                <td></td> -->
+                <!-- <td><button type="reset" class="button">초기화</button> -->
+                <!-- <button type="submit" class="signup_button">회원가입</button></td> -->
+                <!-- </tr>
+                </table> -->
+
+                <div class="form_signup_button"> <!-- 회원가입 버튼 -->
+                  <button type="submit" class="signup_button">회원가입</button>
+                </div>
+
+
+            </form>
+          </div>
+      </div>
+                <input type="hidden" name="type" value="signUp"/>
+    </section>
+  </body>
+</html>
