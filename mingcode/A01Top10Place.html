@@ -6,74 +6,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-
-  <title>Top 10 Place</title>
-
+  <link rel="stylesheet" href="./header.css">
+  <link rel="stylesheet" href="./footer.css">
+  <title>Top 10 장소</title>
   <style>
 
-    * {
-      margin: 0; /* 마진값 초기화 */
-      padding: 0; /* 패딩값 초기화 */
-    }
-    
-    header {
-      width: 100%;
-      height: 80px;
-    }
-
     main {
-      height: 1800px;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    #container {
-      margin: 0px auto;  /* 화면 테두리와 제목 간격 0px */
-      width: 1200px; /* width를 1200px/100% 중 뭘해야하지 ,,, */
-    }
-
-    /* 로고 */
-    #logo {
-      color: #002C7F;
-      float: left;
-      margin-left: -50px; /* 왼쪽에서 30px 띄워라 */
-      margin-top : 12px; 
-    }
-
-    /* 사용자 nav */
-    #topMenu-user {
-      float: right;
-      margin-top: 40px;
-      margin-right: -50px;
-    }
-
-    #topMenu-user li {
-      float: left;
-      padding-left: 30px; /*nav 간격*/
-    }
-
-    #topMenu-user a {
-      text-decoration: none;
-      color: #002C7F;
-      font-weight: bold;
-      font-size: 0.9em;
-    }
-
-    #topMenu-user a:hover {
-      color: red; /* 마우스 포인터 올리면 색상 변화*/
+      margin-top: -120px;
+      height: 2100px;
+      margin-left: 40px;
     }
 
     /* 이미지 타이틀 */
     .img-title {
-      margin-top: 80px;
-      margin-bottom: 30px;
+      margin-top: 170px;
+      margin-bottom: 10px;
     }
   
     .prod-list {
-      list-style:none;
-      padding:0;  
+      list-style: none;
+      padding: 0;  
     }
 
     .prod-list li {
@@ -86,10 +38,34 @@
     
     .prod-list img {
       margin: 0px;
-      padding:0;
-      float:left;
-      z-index:5;
+      padding: 0;
+      float: left;
+      z-index: 5;
     } 
+
+    .prod-list .caption {
+      position: absolute;
+      top: 350px;  /* 기준 위치보다 200px 아래로 */
+      width: 300px;
+      height: 200px;
+      padding-top: 13px;
+      background:rgba(0,0,0,0.6);  /* 반투명한 검정 배경 */ 
+      opacity: 0;  /* 화면에 보이지 않게 */ 
+      transition: all 0.6s ease-in-out;  /* 나타날 때 부드럽게 트랜지션 추가 */
+      z-index: 10;  /* 다른 요소보다 위에 있도록 */ 
+    }
+
+    .prod-list li:hover .caption {
+      opacity: 1;  /* 설명글이 화면에 보이게 */ 
+      transform: translateY(-200px);  /* 설명글이 위로 200px 이동하게 */
+    }  
+
+    .prod-list .caption h2 {
+      color: #fff;
+      text-align: center;
+      font-size: 20px;
+      padding-left: 30px;
+    }      
 
     /* 라인 */
     .line {
@@ -98,25 +74,7 @@
       padding-top: 200px;
       padding-bottom: 100px;
     }
-
-    /* 푸터 */
-    footer {
-        margin-left: -159px;
-        margin-right: -159px;
-        height: 80px;
-        border-top: 1px solid lightgray;
-        background-color: #f8f9fa;
-        padding: 1.8em 0;
-        margin-bottom: 0;
-        text-align: center;
-      }
-
-      .footer-copyright {
-        font-size: 0.9rem;
-        color: #545e6f;
-      }
-    </style>
-
+  </style>
 </head>
 
 <body>
@@ -136,49 +94,47 @@
           <li><a href="#">커뮤니티 채팅방</a></li>
         </ul>
       </nav>
-      
     </header>
 
     <main>
-
       <ul class="prod-list">
         <div class = "img-title">
           <h4><b>인기 체험명소 Top 10</b></h4>
         </div>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
-          <!-- <div class="caption">
-            <h2>상품 1</h2>
-            <p>상품 1 설명 텍스트</p>
-            <p>가격 : 12,345원</p>
-          </div> -->
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
+          <div class="caption">
+            <h2>우도</h2>
+            <!-- <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p> -->
+          </div>
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
       </ul>
 
@@ -189,34 +145,39 @@
           <h4><b>인기 호텔 Top 10</b></h4>
         </div>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
+          <!-- <div class="caption">
+            <h2>상품 1</h2>
+            <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div> -->
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
       </ul>
 
@@ -227,34 +188,39 @@
           <h4><b>인기 맛집 Top 10</b></h4>
         </div>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
+          <!-- <div class="caption">
+            <h2>상품 1</h2>
+            <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div> -->
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
       </ul>
 
@@ -265,41 +231,42 @@
           <h4><b>인기 카페 Top 10</b></h4>
         </div>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
+          <!-- <div class="caption">
+            <h2>상품 1</h2>
+            <p>상품 1 설명 텍스트</p>
+            <p>가격 : 12,345원</p>
+          </div> -->
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
         <li>
-          <img src="./../../images/03.jpg" height="120px">
+          <img src="./../../images/03.jpg" height="200px" width= "200px">
         </li>
       </ul>
-
-      
-
     </main>
-
     <footer>
       <div class="inner">
         <div class="footer-copyright">@copyright 2023. All Rights Reserved</div>
