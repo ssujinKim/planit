@@ -44,34 +44,29 @@ function origin_check(origin_pw) {
 }
 
 function len_pw(pw) {
-	if(pw.length < 6) {
-		alert("6자리 이상의 비밀번호를 설정해주세요.")
+	if(pw.length < 4) {
+		alert("4자리 이상의 비밀번호를 설정해주세요.")
 		return false;
 	} else {
 		return true;
 	}
 }
-		
+
 function validateForm() {
-	var form = document.pwUpdate;
-	var origin_pw = document.pwUpdate.origin_pw.value;
+	console.log('확인');
 	var new_pw = document.pwUpdate.new_pw.value;
 	var pw_che = document.pwUpdate.pw_che.value;
-    
-    if(!origin_pw || !new_pw || !pw_che) {
-        alert("빈칸 모두 입력해주세요.")
-        if(origin_check(origin_pw)) {
-    		if(len_pw(new_pw)) {
-    			if(new_pw != pw_che) {
-    				alert("변경할 비밀번호가 일치하지 않습니다.");
-    			}
-    		}
-    	}
-    }
-    else {
-        form.action="./pwCheck.jsp";
-        form.submit();
-    }
+	
+	if(len_pw(new_pw)) {
+		if(new_pw == pw_che) {
+			return true;
+		} else {
+			alert("변경할 비밀번호가 일치하지 않습니다.");
+			return false;
+		}
+	} else {
+		return false;
+	}
 }
 </script>
 </head>
@@ -80,10 +75,11 @@ function validateForm() {
 	<header class="align-center">
 		<h2>비밀번호 변경</h2>
 	</header>
-	<form name="pwUpdate" method=post onSubmit="return validateForm();" style="text-align: center;">
+	<form name="pwUpdate" method=post action="./pwCheck.jsp"
+	onsubmit="return validateForm();" style="text-align: center;">
 		<div class="form_row">
 			<label>현재 비밀번호</label>
-			<input type="password" name="origin_pw" id="origin_pw" class="pw" placeholder="<%=o_pw%>"/>
+			<input type="password" name="origin_pw" id="origin_pw" class="pw" placeholder="현재 비밀번호"/>
 		</div>
 		<div class="form_row">
 			<label>새 비밀번호</label><input type="password" name="new_pw" id="new_pw" class="pw" placeholder="새 비밀번호"/>

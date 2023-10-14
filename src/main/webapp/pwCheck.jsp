@@ -25,9 +25,6 @@ String birth = request.getParameter("birth");
 String phone = request.getParameter("phone");
 String email = request.getParameter("email");
 
-String origin_pw = request.getParameter("origin_pw");
-out.println("origin_pw: " + origin_pw);
-
 MemberVO vo = new MemberVO();
 
 vo.setId(id);
