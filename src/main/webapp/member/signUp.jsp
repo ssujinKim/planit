@@ -125,87 +125,91 @@
   
 </head>
 
-  <script>
-  function signUpValidation(){
-    var id = document.SignupForm.id.value;
-    var hid = document.SignupForm.h_id.value;
-    var pw1 = document.SignupForm.pw.value;
-    var pw2 = document.SignupForm.pw_check.value;
-    var name = document.SignupForm.name.value;
-    var birth = document.SignupForm.birth.value;
-    var gender = document.getElementsByName("gender");
-    var selectGen = "";
-    var phone = document.SignupForm.phone.value;
-    var email = document.SignupForm.email.value;
-    
-    //최소 한개의 영문, 숫자 포함(정규표현식)
-    var idv=/^[a-z0-9_.]{4,}$/
-    if(!idv.test(id)) {
-        alert("ID는 4자 이상의 영문, 숫자로 이루어진 문자여야 합니다.")
-        document.SignupForm.id.focus();
-        return false;
-    }
-    
-    var pwv=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/
-    if(!pwv.test(pw1)) {
-        alert("비밀번호는 4자 이상의 영문, 숫자로 이루어진 문자여야 합니다.")
-        document.SignupForm.pw.focus();
-        return false;
-    }
-    if(pw1 != pw2) {
-        alert("비밀번호가 일치하지 않습니다.");
-        document.SignupForm.pw_check.focus();
-        return false;
-    }
-    
-    if(name == "") {
-        alert("이름을 입력해주세요.");
-        document.SignupForm.name.focus();
-        return false;
-    }
-    
-    //휴대폰번호 검사
-    if(phone == "") {
-        alert("휴대폰 번호를 입력하세요.");
-        document.SignupForm.phone.focus();
-        return false;
-    }
-    
-    //이메일 검사
-    if(email == "") {
-        alert("이메일을 입력하세요.");
-        document.SignupForm.email.focus();
-        return false;
-    }
-    
-    // 생년월일 검사
-    if(birth == "") {
-        alert("생년월일을 입력하세요.");
-        return false;
-    }
-
-    //성별 확인
-   	for(var i=0; i<gender.length; i++) {
-   		if(gender[i].checked) {
-   			selectGen=gender[i].value;
-   			break;
-      	}
-   	}
-   	if(selectGen == "") {
-   		alert("성별을 선택해주세요");
-      	return false;
-   	}
-   
-    if(hid=="") {
-        alert("아이디 중복검사를 실행해주세요.");
-        return false;
-    }
-    
-    return true;
-  }
-  </script>
-
   <script type="text/javascript">
+  function signUpValidation() {
+		const id = $("#id").val().trim();
+		const name = $("#name").val().trim();
+		const pw = $("#pw").val();
+
+		// 중복 확인 검사
+		if (!$("#id").prop("disabled")) {
+		alert("아이디 중복확인이 필요합니다.");
+		$("#id").focus();
+		return false;
+		}
+
+		// 이름 검사
+		if (name.length < 2) {
+		alert("올바른 이름을 입력하세요.");
+		$("#name").focus();
+		return false;
+		}
+
+		// 비밀번호 유효성 검사
+		var pwv=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/
+		if (!pwv.test(pw)) {
+		alert("비밀번호는 4자 이상의 영문, 숫자로 이루어진 문자여야 합니다.");
+		$(".pw_check_notice").show();
+		$("#pw").focus();
+		return false;
+		}
+
+		// 비밀번호 확인 검사
+		if (!PWValidation()) {
+		alert("비밀번호 확인이 일치하지 않습니다.");
+		$(".pw_check_notice").show();
+		$("#pw").focus();
+		return false;
+		}
+
+		// 성별 검사
+		let gender = document.getElementsByName("gender");
+		let selectGen = "";
+		for(var i=0; i<gender.length; i++) {
+			if(gender[i].checked) {
+				selectGen=gender[i].value;
+				break;
+			}
+		}
+	
+		if(selectGen==="") {
+			alert("성별을 선택하세요.");
+			return false;
+		}
+		
+		// 이메일 검사
+		let emailPattern = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-z]+$/;
+
+		if (!emailPattern.test($("#email").val())) {
+			alert("올바른 이메일을 입력하세요.");
+			$("#email").focus();
+			return false;
+		}
+
+		// 휴대폰 번호 형식 정리
+		// $("#phone").val($("#phone").val().split("-").join(""));
+		
+		// 모든 검증 통과		
+		document.SignupForm.method = "post";
+		document.SignupForm.action = "./signUpCheck.jsp";
+		document.SignupForm.submit();
+		return true;
+	}
+  
+  	function PWValidation(){
+		//비밀번호 확인 검사
+		let pw = $("#pw").val();
+		let pwcheck = $("#pwcheck").val();
+		
+		if (pw != pwcheck) {		
+			$(".pw_check_notice").show();
+			return false;
+		} else {
+			$(".pw_check_notice").hide();
+			return true;
+		}
+	}
+
   function fn_overlapped(){
         
     var _id = $("#id").val();
@@ -256,7 +260,8 @@
         <div class="box">
           <div class="form_wrapper">
             <h1><b>Plan-it</b></h1>
-            <form name="SignupForm" action="./signUpCheck.jsp" onSubmit="return signUpValidation();">
+            <form name="SignupForm" action="javascript: signUpValidation();">
+            <!-- action="./signUpCheck.jsp" onSubmit="return signUpValidation();"> -->
 
               <!-- 아이디 -->
               <div class = "form_box">
@@ -266,7 +271,7 @@
                 </div>
 
                 <div class = "check">
-                  <input type="text" class="sign_up_id" id="id" placeholder="아이디를 입력해주세요." title="아이디 (영문, 숫자 4~20자)" maxlength="20" required>
+                  <input type="text" class="sign_up_id" id="id" placeholder="아이디를 입력해주세요." title="아이디" maxlength="20" required>
                   <input type="hidden" name="h_id"  id="h_id" />
                   <input type="button" id="btnOverlapped" value="중복확인" onClick="fn_overlapped()" />
                 </div>
@@ -288,7 +293,8 @@
                   <label for = "pwcheck_label" class = "form_label"><b>비밀번호 확인</b></label>
                 </div>
                 <div class = "check">
-                  <input type="password" class="sign_up" id="pwcheck" placeholder="비밀번호를 한 번 더 입력해주세요." title="비밀번호 확인 (비밀번호와 동일한 값)" required>
+                <input type="password" class="sign_up" id="pwcheck" placeholder="비밀번호를 한 번 더 입력해주세요." title="비밀번호 확인 (비밀번호와 동일한 값)" oninput="javascript:PWValidation()" required>
+				<span class="pw_check_notice"></span><span class="pw_check_notice" style="color: red; display: none;"><i class="fa-solid fa-circle-exclamation"></i> 비밀번호가 일치하지 않습니다.</span>
                 </div>
               </div>
 
@@ -308,7 +314,7 @@
                   <label for = "phone_label" class = "form_label"><b>휴대폰 번호</b></label>
                 </div>
                 <div class = "check">
-                  <input type="tel" class="sign_up" id="phone" name="phone" pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required>
+                  <input type="tel" class="sign_up" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required>
                 </div>
               </div>
 

@@ -63,6 +63,12 @@
         margin-left: 90px;
         margin-bottom: 80px;
       }
+      
+      [placeholder]:empty:before {
+  		display: block;
+  		content: attr(placeholder);
+  		color: #a6a6a6;
+	  }
     </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
@@ -103,16 +109,6 @@
     		  $("#say").text(str);
     	  });
       });
-      
-      $(document).ready(function () {
-    	  let count = $("input:checked[type='checkbox']").length;
-
-          if (count == 0) {
-        	  alert('0개');
-        	  $("#say").text("원하는 키워드를 선택하세요 (3개까지 선택 가능)");
-          }
-          
-      });
     </script>
   </head>
   <body>
@@ -124,7 +120,7 @@
 
       <form name="themeForm" onsubmit="return check(this);" action="./result.jsp" method="post">
         <div class="box">
-          <div id="say">원하는 키워드를 선택하세요 (3개까지 선택 가능)</div>
+          <div id="say" placeholder='원하는 키워드를 선택하세요 (3개까지 선택 가능)'></div>
           <div id="watch">
             <input type="submit" value="결과 보기" />
           </div>

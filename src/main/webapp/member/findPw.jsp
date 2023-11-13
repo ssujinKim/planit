@@ -96,7 +96,7 @@
                       </div>
                      <div class = "form_box">
                         <div class = "form_title">
-                           <label for="phone">핸드폰 번호</label>
+                           <label for="phone">휴대폰 번호</label>
                         </div>
                         <div class = "check">
                            <input type="tel" id="phone" name="phone" class="form-control" pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})|([0][0-9]{10})" maxlength="13" placeholder="휴대폰 번호 (000-0000-0000 형식)" title="휴대폰 번호 (000-0000-0000 형식)" required>
