@@ -18,31 +18,13 @@
 <%
 String id = (String)session.getAttribute("id");
 
-String[] uriArr = request.getServletPath().split("/");
-String uri = uriArr[uriArr.length-1];
 
-String[] pageArray = {"index", "signUp", "login", "find", "ad", "list"};
-boolean logincheck = true;
-for (String exWord: pageArray){
-	if (uri.contains(exWord)){
-		System.out.println(uri+"에 "+exWord+" 이(가) 포함되어 로그인 체크 예외처리함");
-		logincheck = false;
-		break;
-	}	
-}
-
-if (logincheck){
-	if(id == null){
-		System.out.println("로그인 세션 없음");
-		out.print("<script>alert('로그인이 필요합니다.'); location.href='"+request.getContextPath()+"/index.jsp';</script>");
-	}
-}
 %>
 
 <header>
     <!-- 홈페이지 로고 -->
         <div id="logo">
-          <a href="${contextPath}/index.jsp"><img src="${contextPath}/images/logo.jpg" alt="Plan-it"></a>
+          <a href="${contextPath}/index.jsp"><img src="${contextPath}/images/Plan-it.png" alt="Plan-it" height="50px"></a>
         </div>
         
     <!-- 메뉴(내비게이션) 영역 -->

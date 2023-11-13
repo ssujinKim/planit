@@ -12,9 +12,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <title>게시판 글쓰기</title>
@@ -51,7 +48,7 @@
   				} else {
   					PrintWriter script = response.getWriter();
   					script.println("<script>");
-  					script.println("alert('글쓰기 완료')");
+  					script.println("alert('글 쓰기 완료')");
   					script.println("location.href = 'list.jsp'");
   					script.println("</script>");
   				}

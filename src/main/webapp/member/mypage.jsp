@@ -81,28 +81,7 @@
       }
 
    </style>
-</head>
-
-<body>
-<%
-   request.setCharacterEncoding("utf-8"); 
-   String id = (String)session.getAttribute("id");
    
-   MemberDAO dao = new MemberDAO();
-   List<MemberVO> list = dao.memInfo(id);
-
-   for(int i=0; i<list.size(); i++) {
-      MemberVO listvo = (MemberVO) list.get(i);
-   
-      id = listvo.getId();
-      String pw = listvo.getPw();
-      String name = listvo.getName();
-      String gender = listvo.getGender();
-      String birth = listvo.getBirth();
-      String phone = listvo.getPhone();
-      String email = listvo.getEmail();
-%>
-               
    <script>
    function validateForm() {
       console.log('확인');
@@ -122,18 +101,38 @@
    
    function change_pw() {
       <%
-      session.setAttribute("pw", pw);
+      //session.setAttribute("pw", pw);
       %>
       window.open("./changePw.jsp", "name(about:blank)", "width=500, height=500");
    }
-   </script>            
+   </script>
+</head>
+
+<body>         
    <div id="container">
       <%@ include file="/header.jsp"%>
 
       <main>
          <section id="one" class="one">
             <div class="box">
-               
+            <%
+   			request.setCharacterEncoding("utf-8"); 
+			id = (String)session.getAttribute("id");
+   
+   			MemberDAO dao = new MemberDAO();
+   			List<MemberVO> list = dao.memInfo(id);
+
+   			for(int i=0; i<list.size(); i++) {
+   				MemberVO listvo = (MemberVO) list.get(i);
+   
+      			id = listvo.getId();
+      			String pw = listvo.getPw();
+      			String name = listvo.getName();
+      			String gender = listvo.getGender();
+      			String birth = listvo.getBirth();
+      			String phone = listvo.getPhone();
+      			String email = listvo.getEmail();
+			%>
             <!-- form 시작 -->
             <form name="infoForm" method="post" onSubmit="return validateForm();" action="./infoUpdate.jsp">
             <div class="form_wrapper">

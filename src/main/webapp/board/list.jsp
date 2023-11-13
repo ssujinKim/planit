@@ -10,9 +10,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 
+<script src="../js/bootstrap.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <title>커뮤니티 게시판</title>
 </head>
 
@@ -57,7 +59,7 @@
 					<tr>
 						<td><%= list.get(i).getNum() %></td>
 						<td><a href="view.jsp?num=<%= list.get(i).getNum() %>">
-							<%= list.get(i).getTitle() %></a></td>
+							<%= list.get(i).getTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;").replaceAll("\n", "<br>") %></a></td>
 						<td><%= list.get(i).getId() %></td>
 						<td><%= list.get(i).getPostDate() %></td>
 					</tr>

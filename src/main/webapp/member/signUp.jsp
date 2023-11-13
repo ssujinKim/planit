@@ -133,10 +133,8 @@
     var pw2 = document.SignupForm.pw_check.value;
     var name = document.SignupForm.name.value;
     var birth = document.SignupForm.birth.value;
-    //var gender = document.getElementsByName("gender");
-    //var selectGen = "";
-    var man = document.getElementById("man");
-    var woman = document.getElementById("woman");
+    var gender = document.getElementsByName("gender");
+    var selectGen = "";
     var phone = document.SignupForm.phone.value;
     var email = document.SignupForm.email.value;
     
@@ -186,17 +184,17 @@
         return false;
     }
 
-     //성별 확인
-   for(var i=0; i<gender.length; i++) {
-      if(gender[i].checked) {
-         selectGen=gender[i].value;
-         break;
-      }
-   }
-   if(selectGen==="") {
-      alert("성별을 선택해주세요");
-      return false;
-   }
+    //성별 확인
+   	for(var i=0; i<gender.length; i++) {
+   		if(gender[i].checked) {
+   			selectGen=gender[i].value;
+   			break;
+      	}
+   	}
+   	if(selectGen == "") {
+   		alert("성별을 선택해주세요");
+      	return false;
+   	}
    
     if(hid=="") {
         alert("아이디 중복검사를 실행해주세요.");

@@ -13,8 +13,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import member.MemberVO;
-
 public class BoardDAO {
 	private PreparedStatement pstmt;
 	private Connection conn;
@@ -42,6 +40,7 @@ public class BoardDAO {
 	  			return rs.getInt(1) + 1;
 	  		}
 	  		pstmt.close();
+	  		conn.close();
 	  		return 1; // 첫 번째 게시물인 경우
 	  	} catch(Exception e) {
 	  		e.printStackTrace();
@@ -81,6 +80,7 @@ public class BoardDAO {
         	PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
             //pstmt.setInt(1, 10);
+            
             rs = pstmt.executeQuery();
             while (rs.next()) {
             	BoardVO vo = new BoardVO();
@@ -92,6 +92,10 @@ public class BoardDAO {
                 vo.setVisitCount(rs.getInt(6));
                 list.add(vo);
             }
+            
+            rs.close();
+            pstmt.close();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {}
@@ -101,12 +105,19 @@ public class BoardDAO {
 	public boolean nextPage(int pageNumber) {
         String SQL = "SELECT * FROM board WHERE num < ? ORDER BY num DESC LIMIT 10";
         try {
+        	conn = dataFactory.getConnection();
+        	
             pstmt = conn.prepareStatement(SQL);
             pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+            
             rs = pstmt.executeQuery();
             if (rs.next()) {
                 return true;
             }
+            
+            rs.close();
+            pstmt.close();
+            conn.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -132,11 +143,91 @@ public class BoardDAO {
 				vo.setPostDate(rs.getDate(5));
 				vo.setVisitCount(rs.getInt(6));
 				return vo;
-			}			
+			}
+			
+			rs.close();
+            pstmt.close();
+            conn.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	  
+	
+	public int update(int num, String title, String content) {
+	    String SQL = "UPDATE board SET title = ?, content = ? WHERE num = ?";
+	    try {
+	    	conn = dataFactory.getConnection();
+	    	
+	    	PreparedStatement pstmt = conn.prepareStatement(SQL);
+	        pstmt.setString(1, title);
+	        pstmt.setString(2, content);
+	        pstmt.setInt(3, num);
+	        
+            //pstmt.close();
+            //conn.close();
+            
+	        return pstmt.executeUpdate();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return -1; // 데이터베이스 오류
+	}
+
+	public int delete(int num) {
+	    String SQL = "DELETE FROM board WHERE num = ?";
+	    try {
+	    	conn = dataFactory.getConnection();
+	    	
+	        PreparedStatement pstmt = conn.prepareStatement(SQL);
+	        pstmt.setInt(1, num);
+	        
+	        //pstmt.close();
+	        conn.close();
+	        
+	        return pstmt.executeUpdate();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return -1; // 데이터베이스 오류
+	}
+
+	public List<BoardVO> getList2(int pageNumber) {
+		List<BoardVO> list= new ArrayList<BoardVO>();
+	      
+	      try {
+	         conn = dataFactory.getConnection();
+	         
+	         String sql = "SELECT * FROM board WHERE num < ? ORDER BY num DESC LIMIT 10";
+	         //System.out.println(sql);
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
+	         
+	         ResultSet rs = pstmt.executeQuery();
+	         while(rs.next()) {
+	            int num = rs.getInt(1);
+	            String title = rs.getString(2);
+	            String content = rs.getString(3);
+	            String id = rs.getString(4);
+	            Date postDate  = rs.getDate(5);
+	            int visitCount = rs.getInt(6);   
+	            
+	            BoardVO vo = new BoardVO();
+	            vo.setNum(num);
+	            vo.setTitle(title);
+	            vo.setContent(content);
+	            vo.setId(id);
+	            vo.setPostDate(postDate);
+	            vo.setVisitCount(visitCount);
+	            
+	            list.add(vo);
+	         }
+	         rs.close();
+	         pstmt.close();
+	         conn.close();
+	      } catch(Exception e) {
+	         e.printStackTrace();
+	      }
+	      return list;
+	 }
 }
