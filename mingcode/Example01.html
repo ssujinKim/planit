@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"
+    ></script>
+    <title>Ex01</title>
+    <style>
+      * {
+        margin: 0; /* 마진값 초기화 */
+        padding: 0; /* 패딩값 초기화 */
+      }
+
+      header {
+        width: 100%;
+        height: 80px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      #container {
+        margin: 0px auto; /* 화면 테두리와 제목 간격 0px */
+        width: 1200px; /* width를 1200px/100% 중 뭘해야하지 ,,, */
+      }
+
+      /* 로고 */
+      #logo {
+        color: #002c7f;
+        float: left;
+        margin-left: -50px; /* 왼쪽에서 30px 띄워라 */
+        margin-top: 12px;
+      }
+
+      /* 사용자 nav */
+      #topMenu-user {
+        float: right;
+        margin-top: 40px;
+        margin-right: -50px;
+      }
+
+      #topMenu-user li {
+        float: left;
+        padding-left: 30px; /*nav 간격*/
+      }
+
+      #topMenu-user a {
+        text-decoration: none;
+        color: #002c7f;
+        font-weight: bold;
+        font-size: 0.9em;
+      }
+
+      #topMenu-user a:hover {
+        color: red; /* 마우스 포인터 올리면 색상 변화*/
+      }
+
+      main {
+        margin-left: -110.5px;
+        margin-right: -111px;
+        height: 810px;
+        background-color: rgb(224, 224, 224);
+      }
+
+      .main_box {
+        margin-left: 30px;
+        margin-right: 30px;
+        background-color: white;
+        height: 750px;
+      }
+
+      /* .tip {
+        padding-left: 660px;
+      }
+
+      .tip_button {
+        padding: 10px;
+        width: 150px;
+        margin: 3px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: #052052;
+        color: white;
+        font-size: 20px;
+        border-radius: 8px;
+      } */
+
+      .box {
+        padding-top: 30px;
+      }
+
+      .title {
+        padding-top: 30px;
+        padding-left: 625px;
+      }
+
+      .upload {
+        margin-left: 420px;
+        margin-top: 30px;
+        border: 1px solid black;
+        border-radius: 5px;
+        width: 600px;
+        height: 620px;
+      }
+
+      .drag {
+        padding-left: 75px;
+        padding-top: 20px;
+      }
+
+      .form_button {
+        padding-left: 235px;
+      }
+
+      .select_button {
+        padding: 3px;
+        width: 100px;
+        margin: 3px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        background-color: lightgray;
+        color: black;
+        font-size: 15px;
+        border-radius: 8px;
+      }
+
+      .prod-list {
+        margin-left: 115px;
+        margin-top: 0px;
+        list-style: none;
+        padding: 0;
+      }
+
+      .prod-list li {
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .prod-list img {
+        margin-bottom: 10px;
+        float: left;
+        z-index: 5;
+      }
+
+      .list_button {
+        margin-left: 100px;
+        display: inline-block;
+      }
+
+      .reset {
+        margin-left: -80px;
+        height: 0px;
+      }
+
+      .complete {
+        padding-left: 80px;
+      }
+
+      .reset_button {
+        padding: 10px;
+        width: 140px;
+        margin: 3px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: #002c7f;
+        color: white;
+        font-size: 15px;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+
+      .complete_button {
+        padding: 10px;
+        width: 140px;
+        margin: 3px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        background-color: #002c7f;
+        color: white;
+        font-size: 15px;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+      /* 푸터 */
+      footer {
+        margin-left: -110px;
+        margin-right: -110px;
+        height: 80px;
+        border-top: 1px solid lightgray;
+        background-color: #f8f9fa;
+        padding: 1.8em 0;
+        /* margin: 3em 0; */
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .footer-copyright {
+        font-size: 0.9rem;
+        color: #545e6f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <!-- 홈페이지 로고 -->
+        <div id="logo">
+          <h1>Plan-it</h1>
+        </div>
+
+        <!-- 메뉴(내비게이션) 영역 -->
+        <nav>
+          <ul id="topMenu-user">
+            <li><a href="#">로그아웃</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">커뮤니티 채팅방</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <div class="box">
+          <div class="main_box">
+            <div class="title">
+              <h3><b>이미지 업로드</b></h3>
+            </div>
+
+            <div class="upload">
+              <div class="drag">
+                <h5>드래그 & 드롭 또는 클릭하여 사진을 선택해주세요</h5>
+              </div>
+
+              <div class="form_button">
+                <button type="submit" class="select_button">파일 선택</button>
+              </div>
+              <ul class="prod-list">
+                <li>
+                  <img src="./../../images/이미지찾기.png" height="400px" width="330px" />
+                </li>
+
+                <div class="list_button">
+                  <div class="reset">
+                    <button type="submit" class="reset_button"><b>초기화</b></button>
+                  </div>
+
+                  <div class="complete">
+                    <button type="submit" class="complete_button"><b>선택 완료</b></button>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="inner">
+          <div class="footer-copyright">@copyright 2023. All Rights Reserved</div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

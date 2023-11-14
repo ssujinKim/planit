@@ -13,16 +13,16 @@ ul {
 }
 
 #container {
-  margin: 0px auto;  /* 화면 테두리와 제목 간격 0px */
+  margin: 0px auto; /* 화면 테두리와 제목 간격 0px */
   width: 1200px; /* width를 1200px/100% 중 뭘해야하지 ,,, */
 }
 
 /* 로고 */
 #logo {
-  color: #002C7F;
+  /* color: #002C7F; */
   float: left;
-  margin-left: -50px; /* 왼쪽에서 30px 띄워라 */
-  margin-top : 12px;  
+  margin-left: -48px; /* 왼쪽에서 30px 띄워라 */
+  margin-top: 12px;
 }
 
 /* 사용자 nav */
@@ -39,7 +39,7 @@ ul {
 
 #topMenu-user a {
   text-decoration: none;
-  color: #002C7F;
+  color: #002c7f;
   font-weight: bold;
   font-size: 0.9em;
 }
