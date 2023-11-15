@@ -7,211 +7,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/mainTheme.css" />
+    <link rel="stylesheet" href="./css/mainTop10.css" />
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
   
     <title>Plan-it</title>
 	<style>
-	main {
-	  margin-left: -50px;
-	  margin-right: -50px;
-	  margin-bottom: 100px;
-	}
+		* {
+		     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+		}
+      
+		main {
+		  margin-left: -50px;
+		  margin-right: -50px;
+		  margin-bottom: 100px;
+		}
+		
+		#topMenu-menu {
+		  float: left;
+		  margin: -35px auto;
+		  margin-left: -63px;
+		}
 	
-	#topMenu-menu {
-	  float: left;
-	  margin: -35px auto;
-	  margin-left: -63px;
-	}
-	
-	#topMenu-menu li {
-	  float: left;
-	  padding-left: 30px;
-	}
-	
-	#topMenu-menu a {
-	  text-decoration: none;
-	  color: #002c7f;
-	  font-weight: bold;
-	  font-size: 1em;
-	}
-	
-	#topMenu-menu a:hover {
-	  color: orange;
-	}
-	
-	.line {
-	  border-top: 1px solid lightgray;
-	  margin: 1px -109px;
-	  padding-top: 50px;
-	}
-	
-	.carousel-inner .carousel-caption {
-	  top: 20px;
-	  right: -650px;
-	}
-	
-	.carousel-inner .carousel-caption h3 {
-	  font-size: 30px;
-	  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	}
-	
-	.carousel-inner .carousel-caption p {
-	  font-size: 18px;
-	  padding-right: 10px;
-	}
-	
-	/* theme */
-	.theme-list {
-	  list-style: none;
-	  padding: 0;
-	  margin-bottom: 380px;
-	}
-	
-	.theme-list li {
-	  float: left;
-	  padding: 0;
-	  margin: 10px;
-	  overflow: hidden;
-	  position: relative;
-	}
-	
-	.theme-list img {
-	  margin-left: 8px;
-	  padding: 0;
-	  float: left;
-	  z-index: 5;
-	  border-radius: 5px;
-	}
-	
-	.theme h4 {
-	  margin-left: 20px;
-	}
-	
-	/* Top 10 */
-	.top10 {
-	  margin: 0 auto;
-	}
-	
-	.tabs {
-	  position: relative;
-	  margin: 3rem 0;
-	  background: #394c70;
-	  height: 25rem;
-	}
-	
-	.tabs::before,
-	.tabs::after {
-	  content: '';
-	  display: table;
-	}
-	
-	.tabs::after {
-	  clear: both;
-	}
-	
-	.tab {
-	  float: left;
-	}
-	
-	.tab-switch {
-	  display: none;
-	}
-	
-	.tab-label {
-	  position: relative;
-	  display: block;
-	  line-height: 2.75em;
-	  height: 3em;
-	  padding: 0 5em;
-	  background: #c2d6ff;
-	  border-right: 0.125rem solid white;
-	  color: black;
-	  cursor: pointer;
-	  top: 0;
-	  transition: all 0.25s;
-	}
-	
-	.tab-label:hover {
-	  top: -0.25rem;
-	  transition: top 0.25s;
-	}
-	
-	.tab-content {
-	  height: 22.25rem;
-	  position: absolute;
-	  z-index: 1;
-	  top: 2.75em;
-	  left: 0;
-	  padding-left: 0px;
-	  padding-right: 0px;
-	  background: #fff;
-	  /* color: red; */
-	  opacity: 0;
-	  transition: all 0.35s;
-	  border-left: 1px solid #7c8ba5;
-	  border-bottom: 1px solid #7c8ba5;
-	  width: 1299px;
-	}
-	
-	.tab-switch:checked + .tab-label {
-	  background: #002c7f;
-	  color: white; /* 글자색 */
-	  border-bottom: 0;
-	  border-right: 0.125rem solid white;
-	  transition: all 0.35s;
-	  z-index: 1;
-	  top: -0.0625rem;
-	}
-	.tab-switch:checked + label + .tab-content {
-	  z-index: 2;
-	  opacity: 1;
-	  transition: all 0.35s;
-	}
-	.prod-list {
-	  list-style: none;
-	  padding: 0;
-	}
-	.prod-list li {
-	  float: left;
-	  padding: 0;
-	  margin: 10px;
-	  overflow: hidden;
-	  position: relative;
-	}
-	.prod-list img {
-	  margin-left: 8px;
-	  padding: 0;
-	  float: left;
-	  z-index: 5;
-	  margin-top: 13px;
-	}
-	
-	.prod-list .caption {
-	  position: absolute;
-	  top: 443px;
-	  left: 8px;
-	  width: 250px;
-	  height: 80px;
-	  padding-top: 13px;
-	  background: rgba(252, 252, 252, 0.6);
-	  opacity: 0;
-	  transition: all 0.6s ease-in-out;
-	  z-index: 10;
-	}
-	
-	.prod-list .caption {
-	  opacity: 1;
-	  transform: translateY(-200px);
-	}
-	
-	.prod-list .caption h2 {
-	  color: #fff;
-	  text-align: left;
-	  font-size: 18px;
-	  padding-left: 13px;
-	  padding-top: 15px;
-	  color: black;
-	} 
+		#topMenu-menu li {
+		  float: left;
+		  padding-left: 30px;
+		}
+		
+		#topMenu-menu a {
+		  text-decoration: none;
+		  color: #002c7f;
+		  font-weight: bold;
+		  font-size: 1em;
+		}
+		
+		#topMenu-menu a:hover {
+		  color: orange;
+		}
+		
+		.line {
+		  border-top: 1px solid lightgray;
+		  margin: 1px -109px;
+		  padding-top: 50px;
+		}
+		
+		.carousel-inner .carousel-caption {
+		  top: 20px;
+		  right: -650px;
+		}
+		
+		.carousel-inner .carousel-caption h3 {
+		  font-size: 30px;
+		  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+		
+		.carousel-inner .carousel-caption p {
+		  font-size: 18px;
+		  padding-right: 10px;
+		}
     </style>
   </head>
 
@@ -254,17 +108,25 @@
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./images/제주도 행사3.png" class="d-block w-100" height="550px" alt="..." />
+              <img src="./images/제주도 행사_981억새바당.png" class="d-block w-100" height="550px" alt="..." />
               <div class="carousel-caption">
                 <h3>9.81파크 &lt981 억새 바당&gt</h3>
                 <p>2023.10.04 ~ 2023.11.30</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="./images/제주도 행사3.png" class="d-block w-100" height="550px" alt="..." />
+              <img src="./images/제주도 행사_마노르블랑.png" class="d-block w-100" height="550px" alt="..." />
+              <div class="carousel-caption">
+                <h3>&lt마노르블랑 핑크뮬리축제&gt</h3>
+                <p>2023.09.15 ~ 2023.11.30</p>
+              </div>
             </div>
             <div class="carousel-item">
-              <img src="./images/제주도 행사3.png" class="d-block w-100" height="550px" alt="..." />
+              <img src="./images/제주도 행사_휴애리동백축제.png" class="d-block w-100" height="550px" alt="..." />
+              <div class="carousel-caption">
+                <h3>&lt휴애리 동백 축제&gt</h3>
+                <p>2023.11.14 ~ 2024.01.31</p>
+              </div>
             </div>
           </div>
           <button
@@ -330,6 +192,11 @@
                   <li>
                     <img src="./images/용머리해안1.jpg" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
+                    <div class="form_button">
+                      <a href="./A01Top10.html">
+                        <button type="submit" class="select_button">더 알아보기</button>
+                      </a>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -343,7 +210,9 @@
                     <img src="./images/JW메리어트제주.png" height="310px" width="230px" />
                     <!-- JW 메리어트 제주 리조트 앤 스파 -->
                     <div class="caption">
-                      <h2><b>JW 메리어트 제주 리조트</b></h2>
+                      <h2>
+                        <b>JW 메리어트 제주 <br />리조트 앤 스파</b>
+                      </h2>                    
                     </div>
                   </li>
                   <li>
@@ -370,6 +239,11 @@
                   <li>
                     <img src="./images/그랜드조선제주1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
+                    <div class="form_button">
+                      <a href="./A01Top10.html">
+                        <button type="submit" class="select_button">더 알아보기</button>
+                      </a>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -410,6 +284,11 @@
                   <li>
                     <img src="./images/곰막식당1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
+                    <div class="form_button">
+                      <a href="./A01Top10.html">
+                        <button type="submit" class="select_button">더 알아보기</button>
+                      </a>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -450,6 +329,11 @@
                   <li>
                     <img src="./images/아라파파1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
+                    <div class="form_button">
+                      <a href="./A01Top10.html">
+                        <button type="submit" class="select_button">더 알아보기</button>
+                      </a>
+                    </div>
                   </li>
                 </ul>
               </div>

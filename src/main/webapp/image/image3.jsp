@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="./header.css" />
     <link rel="stylesheet" href="./footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
 
     <title>이미지 기반 추천3</title>
     <style>
+      * {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+      }
+
       main {
         margin-left: -50px;
         margin-right: -50px;
         height: 630px;
         background-color: rgb(232, 232, 232);
-        margin-bottom: 100px;
+        margin-bottom: 70px;
       }
 
       .main_box {
@@ -33,7 +38,8 @@
 
       .title {
         padding-top: 30px;
-        padding-left: 400px;
+
+        text-align: center;
       }
 
       .title h2 {
@@ -44,7 +50,7 @@
         list-style: none;
         padding: 0;
         margin-top: 40px;
-        margin-left: 70px;
+        margin-left: 80px;
       }
 
       .prod-list li {

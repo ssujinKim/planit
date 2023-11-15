@@ -2,22 +2,14 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    <!-- 추가 -->
-    <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./footer.css" />
-    <style>
-      .box {
-        margin: 38px 80px;
-        padding: 13px;
-        text-align: center;
-        border: 1px solid black;
-        border-radius: 8px;
-        font-size: 20px;
-      }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!-- 추가 -->
+		<link rel="stylesheet" href="./header.css" />
+		<link rel="stylesheet" href="./footer.css" />
+		<link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
 
       #say {
         width: 900px;

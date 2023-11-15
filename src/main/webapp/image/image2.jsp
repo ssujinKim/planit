@@ -9,14 +9,20 @@
     <link rel="stylesheet" href="./header.css" />
     <link rel="stylesheet" href="./footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
 
     <title>이미지 기반 추천2</title>
     <style>
+      * {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+      }
+      
       main {
         margin-left: -50px;
         margin-right: -50px;
         height: 860px;
         background-color: rgb(232, 232, 232);
+        margin-bottom: 70px;
       }
 
       .main_box {
@@ -32,7 +38,7 @@
 
       .title {
         padding-top: 30px;
-        padding-left: 515px;
+        padding-left: 523px;
       }
 
       .upload {
@@ -45,7 +51,7 @@
       }
 
       .drag {
-        padding-left: 75px;
+        text-align: center;
         padding-top: 35px;
       }
 
@@ -128,8 +134,8 @@
     </style>
   </head>
   <body>
-  <div id="container">
-    <%@ include file="/header.jsp"%>
+    <div id="container">
+	 <%@ include file="/header.jsp"%>
       <main>
         <div class="box">
           <div class="main_box">
@@ -156,9 +162,8 @@
                   </div>
 
                   <div class="complete">
-                  	<a href="./image3.jsp">
-                    	<button type="submit" class="complete_button"><b>선택 완료</b></button>
-                    </a>
+                    <a href="./image3.jsp">
+                    <button type="submit" class="complete_button"><b>선택 완료</b></button>
                   </div>
                 </div>
               </ul>
@@ -166,7 +171,8 @@
           </div>
         </div>
       </main>
-    <%@ include file="/footer.jsp"%>
+	 <%@ include file="/footer.jsp"%>
     </div>
   </body>
 </html>
+
