@@ -99,75 +99,40 @@
     <div id="container">
 	  <%@ include file="/header.jsp"%>
       <main>
-        <section id="one" class="one">
-          <div class="idpw">
-            <ul>
-              <li><a href="./FinalFindID.html">ID</a></li>
-              <li><a href="./FinalFindPW.html">PW</a></li>
-            </ul>
-          </div>
-          <div class="box">
-            <div class="form_wrapper">
-              <h3><b>비밀번호 찾기</b></h3>
-              <form action="./findPwCheck.jsp" class="form-signin">
-                <div class="form_box">
-                  <div class="form_title">
-                    <label for="name">이름</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="text"
-                      id="findname"
-                      class="form-control"
-                      name="name"
-                      pattern="[가-힣]{2,10}"
-                      placeholder="이름"
-                      title="한글 실명"
-                      required
-                      autofocus
-                    />
-                  </div>
-                </div>
-                <div class="form_box">
-                  <div class="form_title">
-                    <label for="name">아이디</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="text"
-                      id="id"
-                      name="id"
-                      class="form-control"
-                      placeholder="아이디"
-                      title="아이디"
-                      maxlength="20"
-                      required
-                      autofocus
-                    />
-                  </div>
-                </div>
-                <div class="form_box">
-                  <div class="form_title">
-                    <label for="phone">핸드폰 번호</label>
-                  </div>
-                  <div class="check">
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      class="form-control"
-                      pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})|([0][0-9]{10})"
-                      maxlength="13"
-                      placeholder="휴대폰 번호 (000-0000-0000 형식)"
-                      title="휴대폰 번호 (000-0000-0000 형식)"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="form_button">
-                  <button class="button" type="submit">비밀번호 찾기</button>
-                </div>
-              </form>
+         <section id="one" class="one">
+            <div class="box">
+               <div class="form_wrapper">
+                  <h3><b>비밀번호 찾기</b></h3>
+                  <form action="./findPwCheck.jsp" class="form-signin">
+                     <div class = "form_box">
+                        <div class = "form_title">
+                           <label for="name">이름</label>
+                        </div>
+                        <div class = "check">
+                           <input type="text" id="findname" class="form-control" name="name" pattern="[가-힣]{2,10}" placeholder="이름" title="한글 실명" required autofocus>
+                        </div>
+                      </div>
+                     <div class = "form_box">
+                        <div class = "form_title">
+                           <label for="name">아이디</label>
+                        </div>
+                        <div class = "check">
+                           <input type="text" id="id" name="id" class="form-control" placeholder="아이디" title="아이디" maxlength="20" required autofocus>
+                        </div>
+                      </div>
+                     <div class = "form_box">
+                        <div class = "form_title">
+                           <label for="phone">휴대폰 번호</label>
+                        </div>
+                        <div class = "check">
+                           <input type="tel" id="phone" name="phone" class="form-control" pattern="([0-9]{3}-[0-9]{4}-[0-9]{4})|([0][0-9]{10})" maxlength="13" placeholder="휴대폰 번호 (000-0000-0000 형식)" title="휴대폰 번호 (000-0000-0000 형식)" required>
+                        </div>
+                      </div>
+                     <div class="form_button">
+                        <button class="button" type="submit">비밀번호 찾기</button>
+                     </div>
+                  </form>
+               </div>
             </div>
           </div>
         </section>
