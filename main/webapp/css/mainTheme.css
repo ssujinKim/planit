@@ -1,0 +1,57 @@
+/* theme */
+.theme {
+  margin-left: 110px;
+}
+
+.theme h4 {
+  margin-left: 20px;
+}
+
+.theme-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 380px;
+}
+
+.theme-list li {
+  float: left;
+  padding: 0;
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.theme-list img {
+  margin-left: 8px;
+  padding: 0;
+  float: left;
+  z-index: 5;
+  border-radius: 5px;
+}
+
+.theme-list .caption {
+  position: absolute;
+  top: 443px; /* 기준 위치보다 200px 아래로 */
+  left: 8px;
+  width: 250px;
+  height: 80px;
+  padding-top: 13px;
+  background: rgba(252, 252, 252, 0.6); /* 반투명한 검정 배경 */
+  opacity: 0; /* 화면에 보이지 않게 */
+  transition: all 0.6s ease-in-out; /* 나타날 때 부드럽게 트랜지션 추가 */
+  z-index: 10; /* 다른 요소보다 위에 있도록 */
+}
+
+.theme-list .caption {
+  opacity: 1; /* 설명글이 화면에 보이게 */
+  transform: translateY(-240px); /* 설명글이 위로 200px 이동하게 */
+}
+
+.theme-list .caption h2 {
+  color: #fff;
+  text-align: left;
+  font-size: 16px;
+  padding-left: 13px;
+  padding-top: 15px;
+  color: black;
+}
