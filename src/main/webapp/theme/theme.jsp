@@ -71,11 +71,11 @@
         margin-bottom: 80px;
       }
       
-               [placeholder]:empty:before {
-            display: block;
-             content: attr(placeholder);
-             color: #a6a6a6;
-         }
+      [placeholder]:empty:before {
+         display: block;
+         content: attr(placeholder);
+         color: #a6a6a6;
+      }
       
     </style>
    
@@ -83,12 +83,12 @@
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
+
     <script>
       $(document).ready(function () {
         $("input[type='checkbox']").on('click', function () {
           let count = $("input:checked[type='checkbox']").length;
-    
+
           if (count > 3) {
             $(this).prop('checked', false);
             alert('3개까지 선택하실 수 있습니다.');
@@ -96,7 +96,7 @@
           
         });
       });
-    
+
       function check(frm) {
         var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
         if (checkboxes.length < 1) {

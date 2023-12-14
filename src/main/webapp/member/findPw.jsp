@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./../css/header.css" />
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
     <title>ID/PW 찾기</title>
-    
+
     <style>
       * {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
@@ -25,7 +25,7 @@
       .idpw {
         margin-top: 120px;
       }
-      
+
       .idpw ul {
         width: 500px;
         margin: 10px auto;
@@ -101,13 +101,7 @@
   </head>
   <body>
     <div id="container">
-      <header>
-        <div id="logo">
-          <a href="./../index.jsp"
-            ><img src="./../images/로고누끼.png" alt="Plan-it" height="50px"
-          /></a>
-        </div>
-      </header>
+	  <%@ include file="/header.jsp"%>
       <main>
         <section id="one" class="one">
           <div class="idpw">

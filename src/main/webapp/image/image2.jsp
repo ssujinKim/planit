@@ -51,12 +51,6 @@
         padding-top: 35px;
       }
 
-      /*
-      .form_button {
-        padding-left: 235px;
-      }
-      */
-
       .select_button {
         padding: 3px;
         width: 100px;
@@ -147,9 +141,6 @@
                 <h5>드래그 & 드롭 또는 클릭하여 사진을 선택해주세요</h5>
               </div>
 
-              <!-- <div class="form_button">
-                <button type="submit" class="select_button">파일 선택</button>
-              </div> -->
               <ul class="prod-list">
                 <li>
                   <img src="./../images/이미지찾기.png" height="400px" width="330px" />

@@ -43,6 +43,7 @@
         margin-bottom: 20px;
       }
 
+
       .prod-list .caption h2 {
         text-align: center;
         font-size: 20px;

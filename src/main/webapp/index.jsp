@@ -102,7 +102,6 @@
           <li><a href="#">사용방법</a></li>
         </ul>
       </nav>
-
       <main>
         <div class="contain">
           <div class="write">
@@ -205,7 +204,6 @@
         <br />
         <div class="top10">
           <h2>인기 장소</h2>
-
           <div class="tabs">
             <div class="tab">
               <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch" />

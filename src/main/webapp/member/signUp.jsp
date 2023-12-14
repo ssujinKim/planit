@@ -274,73 +274,72 @@
                 </div>
 
                 <!-- 비밀번호 -->
-				<div class = "form_box">
-				  <div class = "form_title">
-				    <label for = "pw_label" class = "form_label"><b>비밀번호</b></label>
-				  </div>
-				  <div class = "check">
-				    <input type="password" class="sign_up" id="pw" name="pw" placeholder="비밀번호를 입력해주세요. (4자 이상)" title="비밀번호 (4자 이상)" required>
-				  </div>
-				</div>
-
-                <!-- 비밀번호 확인 -->
                 <div class = "form_box">
                   <div class = "form_title">
-                    <label for = "pwcheck_label" class = "form_label"><b>비밀번호 확인</b></label>
+                    <label for = "pw_label" class = "form_label"><b>비밀번호</b></label>
                   </div>
                   <div class = "check">
-                    <input type="password" class="sign_up" id="pwcheck" placeholder="비밀번호를 한 번 더 입력해주세요." title="비밀번호 확인 (비밀번호와 동일한 값)" oninput="javascript:PWValidation()" required>
-				    <span class="pw_check_notice"></span><span class="pw_check_notice" style="color: red; display: none;"><i class="fa-solid fa-circle-exclamation"></i> 비밀번호가 일치하지 않습니다.</span>
+                    <input type="password" class="sign_up" id="pw" name="pw" placeholder="비밀번호를 입력해주세요. (4자 이상)" title="비밀번호 (4자 이상)" required>
                   </div>
                 </div>
 
-				<!-- 이름 -->
-				<div class = "form_box">
-				  <div class = "form_title">
-				    <label for = "name_label" class = "form_label"><b>이름</b></label>
-				  </div>
-				  <div class = "check">
-				    <input type="text" class="sign_up" id="name" name="name" pattern="[가-힣]{2,10}" placeholder="이름을 입력해주세요." title="한글 실명" required>
-				  </div>
-				</div>
+                <!-- 비밀번호 -->
+                <div class = "form_box">
+                  <div class = "form_title">
+                    <label for = "pw_label" class = "form_label"><b>비밀번호</b></label>
+                  </div>
+                  <div class = "check">
+                    <input type="password" class="sign_up" id="pw" name="pw" placeholder="비밀번호를 입력해주세요. (4자 이상)" title="비밀번호 (4자 이상)" required>
+                  </div>
+                </div>
 
-				<!-- 전화번호 -->
-				<div class = "form_box">
-				  <div class = "form_title">
-				    <label for = "phone_label" class = "form_label"><b>휴대폰 번호</b></label>
-				  </div>
-				  <div class = "check">
-				    <input type="tel" class="sign_up" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required>
-				  </div>
-				</div>
-				
-				<!-- 이메일 -->
-				<div class = "form_box">
-				  <div class = "form_title">
-				    <label for = "email_label" class = "form_label"><b>이메일</b></label>
-				  </div>
-				  <div class = "check">
-				    <input type="email" class="sign_up" id="email" name="email" placeholder="이메일을 입력해주세요." title="이메일 주소 (xxx@xxxxx.xxx 형식)" required>
-				  </div>
-				</div>
+                <!-- 이름 -->
+                <div class = "form_box">
+                  <div class = "form_title">
+                    <label for = "name_label" class = "form_label"><b>이름</b></label>
+                  </div>
+                  <div class = "check">
+                    <input type="text" class="sign_up" id="name" name="name" pattern="[가-힣]{2,10}" placeholder="이름을 입력해주세요." title="한글 실명" required>
+                  </div>
+                </div>
 
-				<!-- 생년월일/성별 -->
-				<div class = "form_box">
-				  <div class = "form_title">
-				    <label for = "birth_label" class = "form_label"><b>생년월일 / 성별</b></label>
-				  </div>
-				  <div class = "check">
-				    <input type="date" class="sign_up_birth" id="birth" name="birth" placeholder="생년월일" onclick="setMaxDate()" min="1900-01-01" required>
-				    <div class="btn-group btn-group-sm">
-				      <!-- 부트스트랩 라디오버튼 토글버튼 -->
-				      <input type="radio" class="btn-check" name="gender" id="man" autocomplete="off" value="M">
-				      <label class="btn btn-outline-secondary" for="man">M</label>
-				      
-				      <input type="radio" class="btn-check" name="gender" id="woman" autocomplete="off" value="F">
-				      <label class="btn btn-outline-secondary" for="woman">F</label>
-				    </div>
-				  </div>
-				</div>
+                <!-- 전화번호 -->
+                <div class = "form_box">
+                  <div class = "form_title">
+                    <label for = "phone_label" class = "form_label"><b>휴대폰 번호</b></label>
+                  </div>
+                  <div class = "check">
+                    <input type="tel" class="sign_up" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" maxlength="13" placeholder="휴대폰 번호를 입력해주세요. (010-xxxx-xxxx)" title="휴대폰 번호 (010-xxxx-xxxx)" required>
+                  </div>
+                </div>
+
+                <!-- 이메일 -->
+                <div class = "form_box">
+                  <div class = "form_title">
+                    <label for = "email_label" class = "form_label"><b>이메일</b></label>
+                  </div>
+                  <div class = "check">
+                    <input type="email" class="sign_up" id="email" name="email" placeholder="이메일을 입력해주세요." title="이메일 주소 (xxx@xxxxx.xxx 형식)" required>
+                  </div>
+                </div>
+
+                <!-- 생년월일/성별 -->
+                <div class = "form_box">
+                  <div class = "form_title">
+                    <label for = "birth_label" class = "form_label"><b>생년월일 / 성별</b></label>
+                  </div>
+                  <div class = "check">
+                    <input type="date" class="sign_up_birth" id="birth" name="birth" placeholder="생년월일" onclick="setMaxDate()" min="1900-01-01" required>
+                    <div class="btn-group btn-group-sm">
+                      <!-- 부트스트랩 라디오버튼 토글버튼 -->
+                      <input type="radio" class="btn-check" name="gender" id="man" autocomplete="off" value="M">
+                      <label class="btn btn-outline-secondary" for="man">M</label>
+
+                      <input type="radio" class="btn-check" name="gender" id="woman" autocomplete="off" value="F">
+                      <label class="btn btn-outline-secondary" for="woman">F</label>
+                    </div>
+                  </div>
+                </div>
 
                 <div class="form_signup_button"> <!-- 회원가입 버튼 -->
                   <button type="submit" class="signup_button">회원가입</button>

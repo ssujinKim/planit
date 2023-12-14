@@ -25,7 +25,7 @@
       .idpw {
         margin-top: 120px;
       }
-      
+
       .idpw ul {
         width: 500px;
         margin: 10px auto;
@@ -34,7 +34,7 @@
         text-align: center;
         margin-bottom: -20px;
       }
-
+      
       .idpw li {
         display: inline-block;
         width: 200px;
@@ -102,13 +102,7 @@
   </head>
   <body>
     <div id="container">
-      <header>
-        <div id="logo">
-          <a href="./../index.jsp"
-            ><img src="./../images/로고누끼.png" alt="Plan-it" height="50px"
-          /></a>
-        </div>
-      </header>
+    <%@ include file="/header.jsp"%>
       <main>
         <section id="one" class="one">
           <div class="idpw">
