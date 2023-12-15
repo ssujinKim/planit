@@ -1,25 +1,21 @@
+<!-- 이미지 추천 페이지 2 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
-
     <title>이미지 기반 추천2</title>
+    
     <style>
       * {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
       }
       
       main {
-        margin-left: -50px;
-        margin-right: -50px;
         height: 860px;
         background-color: rgb(232, 232, 232);
         margin-bottom: 70px;
@@ -38,25 +34,21 @@
 
       .title {
         padding-top: 30px;
-        padding-left: 523px;
+        text-align: center;
       }
 
       .upload {
-        margin-left: 310px;
+        margin-left: 440px;
         margin-top: 20px;
         border: 1px solid rgb(161, 161, 161);
         border-radius: 5px;
         width: 600px;
-        height: 650px;
+        height: 620px;
       }
 
       .drag {
         text-align: center;
         padding-top: 35px;
-      }
-
-      .form_button {
-        padding-left: 235px;
       }
 
       .select_button {
@@ -72,7 +64,7 @@
       }
 
       .prod-list {
-        margin-left: 115px;
+        margin-left: 130px;
         margin-top: 0px;
         list-style: none;
         padding: 0;
@@ -87,6 +79,7 @@
       }
 
       .prod-list img {
+        margin-top: 20px;
         margin-bottom: 10px;
         float: left;
         z-index: 5;
@@ -135,7 +128,7 @@
   </head>
   <body>
     <div id="container">
-	 <%@ include file="/header.jsp"%>
+	  <%@ include file="/header.jsp"%>
       <main>
         <div class="box">
           <div class="main_box">
@@ -148,9 +141,6 @@
                 <h5>드래그 & 드롭 또는 클릭하여 사진을 선택해주세요</h5>
               </div>
 
-              <div class="form_button">
-                <button type="submit" class="select_button">파일 선택</button>
-              </div>
               <ul class="prod-list">
                 <li>
                   <img src="./../images/이미지찾기.png" height="400px" width="330px" />
@@ -162,7 +152,7 @@
                   </div>
 
                   <div class="complete">
-                    <a href="./image3.jsp">
+                    <a href="./../image/image3.jsp">
                     <button type="submit" class="complete_button"><b>선택 완료</b></button>
                   </div>
                 </div>
@@ -171,7 +161,7 @@
           </div>
         </div>
       </main>
-	 <%@ include file="/footer.jsp"%>
+	  <%@ include file="/footer.jsp"%>
     </div>
   </body>
 </html>

@@ -35,9 +35,7 @@ String id = (String)session.getAttribute("id");
     <%if (u_id == null) {%>
         <nav>
           <ul id="topMenu-user">
-            <li><a href="${contextPath}/member/login.jsp">로그인</a></li>
-            <li><a href="${contextPath}/member/signUp.jsp">회원가입</a></li>
-            <li><a href="${contextPath}/board/list.jsp">커뮤니티 채팅방</a></li>
+            <li><a href="${contextPath}/member/login.jsp">로그인/회원가입</a></li>
           </ul>
           
     <!-- 로그인 후 화면 -->

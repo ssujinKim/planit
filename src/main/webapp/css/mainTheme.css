@@ -1,9 +1,18 @@
 /* theme */
+.theme {
+  margin-left: 110px;
+}
+
+.theme h4 {
+  margin-left: 20px;
+}
+
 .theme-list {
   list-style: none;
   padding: 0;
   margin-bottom: 380px;
 }
+
 .theme-list li {
   float: left;
   padding: 0;
@@ -11,6 +20,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .theme-list img {
   margin-left: 8px;
   padding: 0;
@@ -18,9 +28,7 @@
   z-index: 5;
   border-radius: 5px;
 }
-.theme h4 {
-  margin-left: 20px;
-}
+
 .theme-list .caption {
   position: absolute;
   top: 443px;
@@ -28,15 +36,17 @@
   width: 250px;
   height: 80px;
   padding-top: 13px;
-  background: rgba(252, 252, 252, 0.6);
-  opacity: 0;
+  background: rgba(252, 252, 252, 0.6); 
+  opacity: 0; 
   transition: all 0.6s ease-in-out; 
-  z-index: 10;
+  z-index: 10; 
 }
+
 .theme-list .caption {
-  opacity: 1;
-  transform: translateY(-240px); 
+  opacity: 1; 
+  transform: translateY(-240px);
 }
+
 .theme-list .caption h2 {
   color: #fff;
   text-align: left;

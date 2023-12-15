@@ -1,12 +1,12 @@
+/* 헤더 */
 * {
-  margin: 0; 
-  padding: 0; 
+  box-sizing: border-box;
 }
 
 header {
-  width: 100%;
+  margin: auto;
   height: 80px;
-}
+  width: 1450px;
 
 ul {
   list-style: none;
@@ -14,26 +14,24 @@ ul {
 
 #container {
   margin: 0px auto; 
-  width: 1200px; 
 }
 
 /* 로고 */
 #logo {
   float: left;
-  margin-left: -48px; 
   margin-top: 12px;
 }
 
 /* 사용자 nav */
 #topMenu-user {
   float: right;
-  margin-top: 40px;
-  margin-right: -50px;
+  margin-top: 20px;
+  margin-bottom: 80px;
 }
 
 #topMenu-user li {
   float: left;
-  padding-left: 30px; 
+  padding-left: 30px;
 }
 
 #topMenu-user a {

@@ -1,25 +1,21 @@
+<!-- 이미지 추천 페이지 3 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
-
     <title>이미지 기반 추천3</title>
+    
     <style>
       * {
         font-family: 'Spoqa Han Sans Neo', 'sans-serif';
       }
 
       main {
-        margin-left: -50px;
-        margin-right: -50px;
         height: 630px;
         background-color: rgb(232, 232, 232);
         margin-bottom: 70px;
@@ -38,7 +34,6 @@
 
       .title {
         padding-top: 30px;
-
         text-align: center;
       }
 
@@ -50,7 +45,7 @@
         list-style: none;
         padding: 0;
         margin-top: 40px;
-        margin-left: 80px;
+        margin-left: 190px;
       }
 
       .prod-list li {
@@ -76,7 +71,7 @@
     </style>
   </head>
   <body>
-  <div id="container">
+    <div id="container">
     <%@ include file="/header.jsp"%>
       <main>
         <div class="box">
@@ -115,7 +110,7 @@
           </div>
         </div>
       </main>
-    <%@ include file="/footer.jsp"%>
+      <%@ include file="/footer.jsp"%>
     </div>
   </body>
 </html>

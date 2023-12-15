@@ -1,3 +1,4 @@
+<!-- 아이디 찾기 페이지 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,12 +6,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ID/PW 찾기</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="./function.css" />
-    <link rel="stylesheet" href="./header.css" />
-    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./../css/header.css" />
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+    <title>ID/PW 찾기</title>
 
     <style>
       * {
@@ -22,50 +21,51 @@
         color: black;
         text-decoration: none;
       }
+
       .idpw {
-        margin-top: 20px;
+        margin-top: 120px;
       }
+
       .idpw ul {
         width: 500px;
         margin: 10px auto;
         padding: 0;
-        margin-left: 400px;
+        margin-top: 50px;
+        text-align: center;
         margin-bottom: -20px;
       }
+      
       .idpw li {
         display: inline-block;
         width: 200px;
         border: 1px solid #ccc;
         padding: 10px 15px;
         font-size: 16px;
-        text-align: center;
       }
+
       .idpw p {
         width: 80%;
         padding: 10px;
         line-height: 2em;
       }
 
-      /* id style */
-      .form_wrapper {
-        display: inline-block;
-        text-align: center;
-        background-color: rgb(239, 239, 239);
-        margin-top: 30px;
-        margin-left: 400px;
-        margin-bottom: 100px;
-        height: 500px;
-        padding-bottom: 250px;
-        padding-left: 50px;
-        padding-right: 50px;
-        border: 1px solid black;
-        border-radius: 8px;
+      #logo {
+        padding-top: 80px;
+        margin-left: 692px;
       }
 
-      .form_wrapper > h3 {
-        color: #002c7f;
-        padding-top: 40px;
-        padding-bottom: 60px;
+      /* id style */
+      .form_wrapper {
+        width: 405px;
+        display: inline-block;
+        text-align: center;
+        height: 350px;
+        margin-top: 30px;
+        margin-left: 557px;
+        margin-bottom: 130px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        /* background-color: rgb(239, 239, 239); */
       }
 
       .form-control {
@@ -73,7 +73,8 @@
         width: 278px;
         margin: 3px;
         border: 1px solid lightgray;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        margin-left: 60px;
         border-radius: 5px;
       }
 
@@ -81,7 +82,11 @@
         margin: 3px;
         text-align: left;
         font-size: 14px;
-        margin-left: 0px;
+        margin-left: 60px;
+      }
+
+      form {
+        margin-top: 40px;
       }
 
       .button {
@@ -108,7 +113,6 @@
           </div>
           <div class="box">
             <div class="form_wrapper">
-              <h3><b>아이디 찾기</b></h3>
               <form action="./findIdCheck.jsp" class="form-signin">
                 <div class="form_box">
                   <div class="form_title">

@@ -1,12 +1,14 @@
 /* Top 10 */
 .top10 {
   margin: 0 auto;
+  margin-left: 110px;
 }
 .tabs {
   position: relative;
   margin: 3rem 0;
   background: #394c70;
   height: 25rem;
+  width: 1299.9px;
 }
 .tabs::before,
 .tabs::after {
@@ -52,11 +54,13 @@
   transition: all 0.35s;
   border-left: 1px solid #7c8ba5;
   border-bottom: 1px solid #7c8ba5;
+  /* border-top: 1px solid #7c8ba5; */
+  /* border-right: 1px solid #7c8ba5; */
   width: 1299px;
 }
 .tab-switch:checked + .tab-label {
   background: #002c7f;
-  color: white;
+  color: white; 
   border-bottom: 0;
   border-right: 0.125rem solid white;
   transition: all 0.35s;
@@ -79,6 +83,7 @@
   overflow: hidden;
   position: relative;
 }
+
 .prod-list img {
   margin-left: 8px;
   padding: 0;
@@ -87,31 +92,8 @@
   margin-top: 13px;
   border-radius: 10px;
 }
+
 .prod-list .caption {
-  position: absolute;
-  top: 443px; 
-  left: 8px;
-  width: 250px;
-  height: 80px;
-  padding-top: 13px;
-  background: rgba(252, 252, 252, 0.6); 
-  opacity: 0; 
-  transition: all 0.6s ease-in-out; 
-  z-index: 10;
-}
-.prod-list .caption {
-  opacity: 1;
-  transform: translateY(-200px); 
-}
-.prod-list .caption h2 {
-  color: #fff;
-  text-align: left;
-  font-size: 16px;
-  padding-left: 13px;
-  padding-top: 17px;
-  color: black;
-}
-.prod-list .caption1 {
   position: absolute;
   top: 443px; 
   left: 8px;
@@ -121,12 +103,41 @@
   background: rgba(252, 252, 252, 0.6);
   opacity: 0; 
   transition: all 0.6s ease-in-out;
+  z-index: 10;
+}
+
+.prod-list .caption {
+  opacity: 1; 
+  transform: translateY(-200px); 
+}
+
+.prod-list .caption h2 {
+  color: #fff;
+  text-align: left;
+  font-size: 16px;
+  padding-left: 13px;
+  padding-top: 17px;
+  color: black;
+}
+
+.prod-list .caption1 {
+  position: absolute;
+  top: 443px; 
+  left: 8px;
+  width: 250px;
+  height: 80px;
+  padding-top: 13px;
+  background: rgba(252, 252, 252, 0.6);
+  opacity: 0; 
+  transition: all 0.6s ease-in-out; 
   z-index: 10; 
 }
+
 .prod-list .caption1 {
   opacity: 1;
   transform: translateY(-200px); 
 }
+
 .prod-list .caption1 h2 {
   color: #fff;
   text-align: left;
@@ -135,12 +146,14 @@
   padding-top: 9px;
   color: black;
 }
+
 /* 더 알아보기 버튼 */
 .form_button {
   text-align: center;
   transform: translateY(-60px);
   padding-left: 7px;
 }
+
 .select_button {
   padding: 3px;
   padding-top: 5px;

@@ -1,79 +1,98 @@
-<!-- PLAN-IT 웹 홈페이지 -->
+<!-- 메인 홈페이지 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/mainTheme.css" />
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/mainTop10.css" />
+    <link rel="stylesheet" href="./css/mainTheme.css" />
     <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
-  
-    <title>Plan-it</title>
-	<style>
-		* {
-		     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		}
-      
-		main {
-		  margin-left: -50px;
-		  margin-right: -50px;
-		  margin-bottom: 100px;
-		}
-		
-		#topMenu-menu {
-		  float: left;
-		  margin: -35px auto;
-		  margin-left: -63px;
-		}
-	
-		#topMenu-menu li {
-		  float: left;
-		  padding-left: 30px;
-		}
-		
-		#topMenu-menu a {
-		  text-decoration: none;
-		  color: #002c7f;
-		  font-weight: bold;
-		  font-size: 1em;
-		}
-		
-		#topMenu-menu a:hover {
-		  color: orange;
-		}
-		
-		.line {
-		  border-top: 1px solid lightgray;
-		  margin: 1px -109px;
-		  padding-top: 50px;
-		}
-		
-		.carousel-inner .carousel-caption {
-		  top: 20px;
-		  right: -650px;
-		}
-		
-		.carousel-inner .carousel-caption h3 {
-		  font-size: 30px;
-		  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-		}
-		
-		.carousel-inner .carousel-caption p {
-		  font-size: 18px;
-		  padding-right: 10px;
-		}
+    <title>메인 홈페이지</title>
+
+    <style>
+      * {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+      }
+
+      main {
+        min-height: 700px;
+        width: 1450px;
+      }
+
+      #topMenu-menu {
+        margin-left: 400px;
+        margin-bottom: 20px;
+        height: 30px;
+      }
+
+      #topMenu-menu li {
+        float: left;
+        padding-left: 40px;
+      }
+
+      #topMenu-menu a {
+        text-decoration: none;
+        color: #002c7f;
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+      #topMenu-menu a:hover {
+        color: orange;
+      }
+
+      .contain {
+        margin-bottom: 50px;
+        display: inline-flex;
+      }
+
+      .write {
+        margin-top: 150px;
+        width: 340px;
+        margin-left: 120px;
+      }
+
+      .write h1 {
+        margin-left: 12px;
+        font-size: 70px;
+      }
+
+      .write h4 {
+        text-align: left;
+      }
+
+      #carouselExampleIndicators {
+        width: 1000px;
+        margin-left: 20px;
+      }
+
+      .carousel-inner .carousel-caption {
+        top: 0px;
+        right: 0px;
+      }
+
+      .carousel-inner .carousel-caption h3 {
+        font-size: 30px;
+      }
+
+      .carousel-inner .carousel-caption p {
+        font-size: 18px;
+        padding-right: 0px;
+      }
+
+      .carousel-inner img {
+        opacity: 0.8; /* 불투명도 */
+      }
     </style>
   </head>
 
   <body>
     <div id="container">
-      <%@ include file="/header.jsp"%>
-      <main>
-      <div class="line"></div>
+	  <%@ include file="/header.jsp"%>
       <nav>
         <ul id="topMenu-menu">
           <li><a href="./image/image1.jsp">이미지 기반 추천</a></li>
@@ -83,78 +102,108 @@
           <li><a href="#">사용방법</a></li>
         </ul>
       </nav>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
+      <main>
+        <div class="contain">
+          <div class="write">
+            <h4>Connect you with me</h4>
+            <h4>Carry on our plans</h4>
+            <h4>Chase one's destination</h4>
+            <br />
+            <h1>Plan IT</h1>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="./images/제주도 행사_981억새바당.png" class="d-block w-100" height="550px" alt="..." />
-              <div class="carousel-caption">
-                <h3>9.81파크 &lt981 억새 바당&gt</h3>
-                <p>2023.10.04 ~ 2023.11.30</p>
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="./images/제주도 행사_981억새바당.png"
+                  class="d-block w-100"
+                  height="550px"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <!-- 
+                  <h3>9.81파크 &lt981 억새 바당&gt</h3>
+                  <p>2023.10.04 ~ 2023.11.30</p>
+                   -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./images/제주도 행사_마노르블랑.png"
+                  class="d-block w-100"
+                  height="550px"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <!-- 
+                  <h3>&lt마노르블랑 핑크뮬리축제&gt</h3>
+                  <p>2023.09.15 ~ 2023.11.30</p>
+                  -->
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./images/제주도 행사_휴애리동백축제.png"
+                  class="d-block w-100"
+                  height="550px"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <!-- 
+                  <h3>&lt휴애리 동백 축제&gt</h3>
+                  <p>2023.11.14 ~ 2024.01.31</p>
+                  -->
+                </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <img src="./images/제주도 행사_마노르블랑.png" class="d-block w-100" height="550px" alt="..." />
-              <div class="carousel-caption">
-                <h3>&lt마노르블랑 핑크뮬리축제&gt</h3>
-                <p>2023.09.15 ~ 2023.11.30</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="./images/제주도 행사_휴애리동백축제.png" class="d-block w-100" height="550px" alt="..." />
-              <div class="carousel-caption">
-                <h3>&lt휴애리 동백 축제&gt</h3>
-                <p>2023.11.14 ~ 2024.01.31</p>
-              </div>
-            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-
         <!-- Top 10 -->
         <br />
         <br />
         <br />
-        <h2>인기 장소</h2>
         <div class="top10">
+          <h2>인기 장소</h2>
           <div class="tabs">
             <div class="tab">
               <input type="radio" name="css-tabs" id="tab-1" checked class="tab-switch" />
@@ -193,8 +242,8 @@
                     <img src="./images/용머리해안1.jpg" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
                     <div class="form_button">
-                      <a href="./A01Top10.html">
-                        <button type="submit" class="select_button">더 알아보기</button>
+                      <a href="./top10/top10.jsp">
+                        <button type="submit" class="select_button"><b>더 알아보기</b></button>
                       </a>
                     </div>
                   </li>
@@ -209,10 +258,10 @@
                   <li>
                     <img src="./images/JW메리어트제주.png" height="310px" width="230px" />
                     <!-- JW 메리어트 제주 리조트 앤 스파 -->
-                    <div class="caption">
+                    <div class="caption1">
                       <h2>
                         <b>JW 메리어트 제주 <br />리조트 앤 스파</b>
-                      </h2>                    
+                      </h2>
                     </div>
                   </li>
                   <li>
@@ -233,14 +282,14 @@
                     <img src="./images/엠버퓨어힐1.png" height="310px" width="230px" />
                     <!-- 엠버 퓨어힐 호텔 & 리조트 -->
                     <div class="caption">
-                      <h2><b>엠버 퓨어힐 호텔</b></h2>
+                      <h2><b>엠버 퓨어힐 호텔 & 리조트</b></h2>
                     </div>
                   </li>
                   <li>
                     <img src="./images/그랜드조선제주1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
                     <div class="form_button">
-                      <a href="./A01Top10.html">
+                      <a href="./top10/top10.jsp">
                         <button type="submit" class="select_button">더 알아보기</button>
                       </a>
                     </div>
@@ -285,8 +334,8 @@
                     <img src="./images/곰막식당1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
                     <div class="form_button">
-                      <a href="./A01Top10.html">
-                        <button type="submit" class="select_button">더 알아보기</button>
+                      <a href="./top10/top10.jsp">
+                        <button type="submit" class="select_button"><b>더 알아보기</b></button>
                       </a>
                     </div>
                   </li>
@@ -330,8 +379,8 @@
                     <img src="./images/아라파파1.png" height="310px" width="230px" />
                     <!-- 더 알아보기 -->
                     <div class="form_button">
-                      <a href="./A01Top10.html">
-                        <button type="submit" class="select_button">더 알아보기</button>
+                      <a href="./top10/top10.jsp">
+                        <button type="submit" class="select_button"><b>더 알아보기</b></button>
                       </a>
                     </div>
                   </li>
@@ -350,18 +399,33 @@
           <ul class="theme-list">
             <li>
               <img src="./images/테디베어뮤지엄1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>테디베어뮤지엄</b></h2>
+              </div>
             </li>
             <li>
               <img src="./images/김녕.jpg" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>김녕 해수욕장</b></h2>
+              </div>
             </li>
             <li>
               <img src="./images/에코랜드2.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>에코랜드</b></h2>
+              </div>
             </li>
             <li>
               <img src="./images/한림공원1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>한림공원</b></h2>
+              </div>
             </li>
             <li>
               <img src="./images/협재해수욕장1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>협재 해수욕장</b></h2>
+              </div>
             </li>
           </ul>
 
@@ -369,28 +433,43 @@
           <ul class="theme-list">
             <li>
               <img src="./images/섭지코지1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>섭지코지</b></h2>
+              </div>
               <!-- 섭지코지 -->
             </li>
             <li>
               <img src="./images/협재해수욕장1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>협재 해수욕장</b></h2>
+              </div>
               <!-- 협재 해수욕장 -->
             </li>
             <li>
               <img src="./images/함덕해수욕장1.png" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>함덕 해수욕장</b></h2>
+              </div>
               <!-- 함덕 해수욕장 -->
             </li>
             <li>
               <img src="./images/에코랜드3.jpg" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>에코랜드</b></h2>
+              </div>
               <!-- 에코랜드 -->
             </li>
             <li>
               <img src="./images/한림공원3.jpg" height="280px" width="230px" />
+              <div class="caption">
+                <h2><b>한림공원</b></h2>
+              </div>
               <!-- 한림공원 -->
             </li>
           </ul>
         </div>
       </main>
-      <%@ include file="/footer.jsp"%>
+	  <%@ include file="/footer.jsp"%>
     </div>
   </body>
 </html>

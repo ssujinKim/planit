@@ -1,150 +1,145 @@
+<!-- 이미지 추천 페이지 4 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
-	<head>
-	    <meta charset="UTF-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <link rel="stylesheet" href="./header.css" />
-	    <link rel="stylesheet" href="./footer.css" />
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
-	    <script src="https://kit.fontawesome.com/9c2237f8ea.js" crossorigin="anonymous"></script>
-	    <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+	<script src="https://kit.fontawesome.com/9c2237f8ea.js" crossorigin="anonymous"></script>
+	<link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+	<title>이미지 기반 추천4</title>
 	
-	    <title>이미지 기반 추천4</title>
-	
-	    <style>
-		    * {
-		      font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-		    }
-		
-		    main {
-		      margin-left: -50px;
-		      margin-right: -50px;
-		      height: 630px;
-		      background-color: rgb(232, 232, 232);
-		      margin-bottom: 70px;
-		    }
-		
-		    .box {
-		      padding-top: 30px;
-		    }
-		
-		    .main_box {
-		      margin-left: 30px;
-		      margin-right: 30px;
-		      background-color: white;
-		      height: 570px;
-		    }
-		
-		    .title h2 {
-		      padding-top: 50px;
-		    }
-		
-		    .prod-list {
-		      list-style: none;
-		      padding: 0;
-		      margin-top: -15px;
-		      margin-left: 80px;
-		    }
-		
-		    .prod-list li {
-		      padding: 0;
-		      margin: 27px;
-		      overflow: hidden;
-		      position: relative;
-		      display: inline-block;
-		    }
-		
-		    .prod-list img {
-		      float: left;
-		      z-index: 5;
-		      margin-bottom: 15px;
-		      border-radius: 0px;
-		    }
-		
-		    .prod-list .caption h2 {
-		      margin-left: 65px;
-		      font-size: 20px;
-		    }
-		
-		    .prod-list .caption h6 {
-		      text-align: center;
-		    }
-		
-		    .image-list {
-		      list-style: none;
-		      margin-left: 500px;
-		    }
-		
-		    .img-title {
-		      margin-top: -570px;
-		      margin-left: 545px;
-		      margin-bottom: -10px;
-		    }
-		
-		    .image-list li {
-		      float: left;
-		      padding: 0;
-		      margin: 10px;
-		      overflow: hidden;
-		      position: relative;
-		    }
-		
-		    .image-list img {
-		      z-index: 5;
-		      border-radius: 5px;
-		    }
-		
-		    .image-list2 {
-		      list-style: none;
-		      margin-left: 500px;
-		    }
-		
-		    .img-title2 {
-		      margin-top: 170px;
-		      margin-left: 545px;
-		      margin-bottom: -10px;
-		    }
-		
-		    .image-list2 li {
-		      float: left;
-		      padding: 0;
-		      margin: 10px;
-		      overflow: hidden;
-		      position: relative;
-		    }
-		
-		    .image-list2 img {
-		      z-index: 5;
-		      border-radius: 5px;
-		    }
-		
-		    .image-list3 {
-		      list-style: none;
-		      margin-left: 500px;
-		    }
-		
-		    .img-title3 {
-		      margin-top: 170px;
-		      margin-left: 545px;
-		      margin-bottom: -10px;
-		    }
-		
-		    .image-list3 li {
-		      float: left;
-		      padding: 0;
-		      margin: 10px;
-		      overflow: hidden;
-		      position: relative;
-		    }
-		
-		    .image-list3 img {
-		      z-index: 5;
-		      border-radius: 5px;
-		    }
-	    </style>
+    <style>
+      * {
+        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+      }
+
+      main {
+        height: 630px;
+        background-color: rgb(232, 232, 232);
+        margin-bottom: 70px;
+      }
+
+      .box {
+        padding-top: 30px;
+      }
+
+      .main_box {
+        margin-left: 30px;
+        margin-right: 30px;
+        background-color: white;
+        height: 570px;
+      }
+
+      .title h2 {
+        padding-top: 50px;
+      }
+
+      .prod-list {
+        list-style: none;
+        padding: 0;
+        margin-top: -15px;
+        margin-left: 120px;
+      }
+
+      .prod-list li {
+        padding: 0;
+        margin: 27px;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+      }
+
+      .prod-list img {
+        float: left;
+        z-index: 5;
+        margin-bottom: 15px;
+        border-radius: 0px;
+      }
+
+      .prod-list .caption h2 {
+        margin-left: 65px;
+        font-size: 20px;
+      }
+
+      .prod-list .caption h6 {
+        text-align: center;
+      }
+
+      .image-list {
+        list-style: none;
+        margin-left: 600px;
+      }
+
+      .img-title {
+        margin-top: -570px;
+        margin-left: 650px;
+        margin-bottom: -10px;
+      }
+
+      .image-list li {
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-list img {
+        z-index: 5;
+        border-radius: 5px;
+      }
+
+      .image-list2 {
+        list-style: none;
+        margin-left: 600px;
+      }
+
+      .img-title2 {
+        margin-top: 170px;
+        margin-left: 650px;
+        margin-bottom: -10px;
+      }
+
+      .image-list2 li {
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-list2 img {
+        z-index: 5;
+        border-radius: 5px;
+      }
+
+      .image-list3 {
+        list-style: none;
+        margin-left: 600px;
+      }
+
+      .img-title3 {
+        margin-top: 170px;
+        margin-left: 650px;
+        margin-bottom: -10px;
+      }
+
+      .image-list3 li {
+        float: left;
+        padding: 0;
+        margin: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .image-list3 img {
+        z-index: 5;
+        border-radius: 5px;
+      }
+    </style>
 	</head>
 	<body>
 	  <div id="container">
