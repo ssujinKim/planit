@@ -76,7 +76,7 @@
       <div class="line"></div>
       <nav>
         <ul id="topMenu-menu">
-          <li><a href="./image/image1.jsp">이미지 기반 추천</a></li>
+          <li><a href="./image/upload.jsp">이미지 기반 추천</a></li>
           <li><a href="./theme/theme.jsp">테마별 추천</a></li>
           <li><a href="./top10/top10.jsp">Top 10</a></li>
           <li><a href="#">인기 검색 순위</a></li>

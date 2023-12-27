@@ -10,21 +10,69 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
-
-	<link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
-	<style>
-	* {
-	  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-	}
-		
-	main {
-	  margin-bottom: 500px;
-	  margin-left: -45px;
-      margin-top: 30px;
-	}
-	</style>
+	  <link rel="stylesheet" href="./header.css" />
+	  <link rel="stylesheet" href="./footer.css" />
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"  />
+	  <link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/css" />
+	
+	  <title>이미지 기반 추천</title>
+	  
+	  <style>
+	    * {
+	      font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+	    }
+	
+	    main {
+	      margin-left: -50px;
+	      margin-right: -50px;
+	      height: 600px;
+	      background-color: rgb(232, 232, 232);
+	      margin-bottom: 70px;
+	    }
+	
+	    .main_box {
+	      margin-left: 30px;
+	      margin-right: 30px;
+	      background-color: white;
+	      height: 540px;
+	    }
+	
+	    .box {
+	      padding-top: 30px;
+	    }
+	
+	    .title {
+	      padding-top: 50px;
+	      padding-left: 520px;
+	    }
+	
+	    .upload {
+	      margin-left: 310px;
+	      margin-top: 30px;
+	      border: 1px solid rgb(161, 161, 161);
+	      border-radius: 5px;
+	      width: 600px;
+	      height: 150px;
+	      text-align: center;
+	      padding-top: 35px;
+	    }
+	    
+	    .form_button {
+	      padding-left: 235px;
+	    }
+	
+	    .select_button {
+	      padding: 3px;
+	      width: 100px;
+	      margin: 3px;
+	      margin-top: 10px;
+	      margin-bottom: 30px;
+	      background-color: rgb(227, 227, 227);
+	      border: 1px solid black;
+	      font-size: 15px;
+	      border-radius: 3px;
+	    }
+	  </style>
 	
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -48,44 +96,38 @@ $(document).ready(() => {
 	String name = (String) files.nextElement();
 	File file = multi.getFile(name);
 	
+	String msg = "";
 	if(file != null) {
-		out.println("파일 업로드 완료!");
+		msg = "성공";
 		out.println("<br>");
 	} else {
-		out.println("파일 업로드 실패..");
+		msg = "실패";
 		out.println("<br>");
 	}
 %>
 
-    <section id="blog" class="section">
-        <div class="container text-center" id="header1">
-            <h6 class="section-title mb-4">이미지가 저장되었습니다.</h6>
-            <h6 class="subtitle">실행 버튼을 클릭하여 비슷한 여행지를 추천 받으세요!
-                <br>
-                <br>
-                <br>
-            </h6>
-            <div class="row text-left">
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <div class="card-body">
-                            <div id="upload-container">
-                                <h1>여행지 추천</h1>
-                                <br>
-                                <br>
-                                <br>
-                                <button id="run-python-btn">실행</button>
-                                <div id="loading-overlay">
-                                    <div id="loading-spinner"></div>
-                                </div>
-                                <div id="python-result"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<div class="box">
+	  <div class="main_box">
+	    <div class="title">
+	      <h3><b>여행지 추천</b></h3>
+		</div>
+	
+		<div class="upload">
+		  <h6 class="section-title mb-4">이미지 저장에 <%=msg%>했습니다.</h6>
+		  <h6 class="subtitle">
+		  <%
+		  String msg2 = "";
+		  if(msg.equals("성공")) {
+			  msg2 = "실행 버튼을 클릭하여 비슷한 여행지를 추천 받으세요!";
+		  } else {
+			  msg2 = "이미지를 다시 선택해주세요.";
+		  }
+		  %>
+		  <%=msg2%><br><br><br></h6>
+		  <button id="run-python-btn">실행</button>
+		</div>
+	  </div>
+	</div>
   </main>
   <%@ include file="/footer.jsp" %>
   </div>
