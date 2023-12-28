@@ -77,9 +77,48 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+function LoadingWithMask() {
+	//화면의 높이와 너비
+	var maskHeight = $(document).height();
+	var maskWidth = window.document.body.clientWidth;
+	
+	//화면에 출력할 마스크 설정
+	var mask = "<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:none; left:0; top:0;'>";
+	var loadingImg = '';
+	loadingImg += "<div id='loadingImg'>";
+	loadingImg += " <img src='./imgs/LoadingImg.gif'/>";
+	loadingImg += "</div></div>";  
+	
+	//화면에 레이어 추가
+	$('body').append(mask).append(loadingImg);
+	
+	//css 설정
+	$('#mask').css({
+		'width' : maskWidth,
+		'height': maskHeight,
+		'opacity' : '0.3'
+	});
+	
+	$('#loadingImg').css({
+		'position': 'absolute',
+	    'top': '45%',
+	    'left': '45%',
+	    'margin': '-25px 0 0 -25px',
+	    'text-align': 'center'
+	});
+	
+	//마스크 표시
+	$('#mask').show();
+	
+	//로딩중 이미지 표시
+	$('#loadingImg').show();
+}
+
+
 $(document).ready(() => {
   $('#run-python-btn').click(() => {
 	  window.location.href = './runPython.jsp';
+	  LoadingWithMask();
   });
 });
 </script>

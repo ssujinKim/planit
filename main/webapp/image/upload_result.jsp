@@ -56,15 +56,15 @@ String filePath = request.getSession().getServletContext().getRealPath("/image/i
 File f = new File(filePath);
 File[] files = f.listFiles(); // 파일의 리스트를 대입
 
-int tCnt = 0;
+int i, j, j2 = 0, tCnt = 0;
 String fileName = "";
 out.println("<table style='text-align: center;'>");
 out.println("<tr><td></td><td></td><td></td><td></td></tr>");
-for(int i=0; i < resultArr.length; i++) {
+for(i=0; i < resultArr.length; i++) {
 	
 	if(tCnt%4 == 0) out.println("<tr>");
-		
-	for(int j=0; j < files.length; j++) {
+	
+	for(j=j2+1; j < files.length; j++) {
 		fileName = files[j].getName();
 		System.out.println(fileName + "?");
 		if(fileName.contains(resultArr[i])){
@@ -73,6 +73,8 @@ for(int i=0; i < resultArr.length; i++) {
 		  	out.println("<td><a href='./detail/"+ fileName.substring(fileName.indexOf("(")+1, fileName.indexOf(")")) 
 		  	+".jsp'><img alt='사진' class='photo' src='./imgs/"+ fileName +"' width='300' height='200'/></a>");
 		    out.println("<br>" + fileName.substring(0, fileName.indexOf("(")) + "</td>");
+		    j2 = j;
+		    break;
 		}
 		if(tCnt%4 == 0) out.println("</tr>");
 	}
