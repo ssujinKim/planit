@@ -126,7 +126,7 @@ def represent_color(df):
         represent_colors.append(max_freq_color)
 
     # 결과 출력
-    #print("Represent Color:", represent_colors)
+    # print("Represent Color:", represent_colors)
     return represent_colors  # 수정: 결과를 반환하도록 변경
 
 
@@ -242,10 +242,16 @@ img_des
 col_img_des = recommend_csv.loc[(recommend_csv['토픽'] == max_pre) & (recommend_csv['Closest Color'].isin(flat_result_colors)), :]
 
 result = col_img_des['이름'].drop_duplicates()
+print("l")
 for i in range(len(result)):
     print(result.values[i])
-
-
+    
+print("c")
+color_res = col_img_des['Closest Color'].drop_duplicates()
+for i in range(len(color_res)):
+    print(color_res.values[i])
+    
+# print(col_img_des)
 # In[ ]:
 
 

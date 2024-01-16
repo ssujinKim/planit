@@ -1,75 +1,73 @@
 package model;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-//Spring MVC Controller 예제
+/*
+//Spring MVC Controller
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+*/
 
-/**
- * Servlet implementation class PythonController2
- */
-@WebServlet("/model/run-python2")
-public class PythonController2 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public PythonController2() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+public class PythonController2 {
 
-	/**
-	 * @return 
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		try {
-	         // 여기서 파이썬 스크립트를 실행하고 결과를 반환
-	         // 예를 들어, ProcessBuilder를 사용하여 실행하는 코드를 작성
-	         ProcessBuilder processBuilder = new ProcessBuilder("python", "C://Plan-it/example1.py");
-	         Process process = processBuilder.start();
+ public String runPythonScript() {
+     try {
+         ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\JavaProgram\\planit\\src\\main\\java\\model\\6_Recommend.py");
+         processBuilder.environment().put("PYTHONIOENCODING", "UTF-8");
+         Process process = processBuilder.start();
+         
+         InputStream inputStream = process.getInputStream();
+         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
 
-	         // 프로세스의 출력 가져오기
-	         InputStream inputStream = process.getInputStream();
-	         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+         // 특정 값을 찾을 문자열
+         String targetValue = "카테고리";
+         String targetValue2 = "다른 사진";
+         
+         // 스트림에서 특정 문자열이 발견되면 해당 줄부터 끝까지 출력        
+         StringBuilder output = new StringBuilder();
+         String line;
+         boolean foundTarget = false;
+         while ((line = reader.readLine()) != null) {
+        	 if(line.contains(targetValue2)) {
+        		 output.append(line).append("\n");
+        		 break;
+        	 }
+        	 
+        	 if(foundTarget) {
+        		 output.append(line).append("\n");
+        	 }
+        	 if (line.contains(targetValue)) {
+                 // 특정 문자열이 발견되면 foundTarget을 true로 설정
+                 foundTarget = true;
+                 output.append(line).append("\n");
+                 System.out.println(line);
+             }
+         }
+         
+         // 에러 메시지
+         BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream(), "utf-8"));
+         StringBuilder errors = new StringBuilder();
 
-	         StringBuilder output = new StringBuilder();
-	         String line;
-	         while ((line = reader.readLine()) != null) {
-	             output.append(line).append("\n");
-	         }
+         String errorLine;
+         while ((errorLine = errorReader.readLine()) != null) {
+             errors.append(errorLine).append("\n");
+         }
 
-	         System.out.println(output.toString());
-	         //return output.toString();
+         if (errors.length() > 0) {
+             System.err.println("Error in Python script:\n" + errors.toString());
+         }
 
-	     } catch (IOException e) {
-	         e.printStackTrace();
-	         System.out.println("Error while running Python script.");
-	         //return "Error while running Python script.";
-	     }
-	}
+         // 문자열 출력 & 전송
+         System.out.println(output.toString());
+         return output.toString();
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+     } catch (IOException e) {
+         e.printStackTrace();
+         return "Error while running Python script.";
+     }
+ }
 }
