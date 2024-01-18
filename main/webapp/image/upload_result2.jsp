@@ -69,10 +69,13 @@ String filePath = request.getSession().getServletContext().getRealPath("/image/i
 File f = new File(filePath);
 File[] files = f.listFiles(); // 파일의 리스트를 대입
 
-int i, j, j2 = 0, tCnt = 0;
-String fileName = "", color = "", finPath = "";
+int i, j, j2 = 0, tCnt = 0, k;
+String fileName = "", color = "", finPath = "", fp = "";
+File f2;
+
 out.println("<table style='text-align: center;'>");
 out.println("<tr><td></td><td></td><td></td><td></td></tr>");
+
 for(i=0; i < locArr.length; i++) {
 	
 	if(tCnt%4 == 0) out.println("<tr>");
@@ -81,7 +84,24 @@ for(i=0; i < locArr.length; i++) {
 		fileName = files[j].getName();
 		if(fileName.contains(locArr[i])){
 			tCnt++;
-			finPath = "./imgs/추천이미지/"+ locArr[i] + "/" + category + "/" + colArr[0] + ".jpg";
+			
+			for(k=0; k < colArr.length; k++) {
+				color = colArr[k];
+				fp = filePath + "/" + locArr[i] + "/" + category + "/" + color + ".jpg";
+				f2 = new File(fp);
+				if(f2.exists()) break;
+				else if(k == colArr.length-1) color = "";
+				else continue;
+			}
+			
+			finPath = "./imgs/추천이미지/"+ locArr[i] + "/" + category + "/" + color + ".jpg";
+			
+			if(color.equals("")) {
+				File f3 = new File(filePath + "/" + locArr[i] + "/" + category + "/");
+				File[] files3 = f.listFiles();
+				finPath = "./imgs/추천이미지/"+ locArr[i] + "/" + category + "/" + files3[0].getName();
+			}
+			
 			System.out.println(finPath);
 		  	out.println("<td><a href='./detail/"+ locArr[i]
 		  	+".jsp'><img alt='사진' class='photo' src='"+ finPath +"' width='300' height='200'/></a>");

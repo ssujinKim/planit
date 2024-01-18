@@ -16,7 +16,7 @@ public class PythonController2 {
 
  public String runPythonScript() {
      try {
-         ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\JavaProgram\\planit\\src\\main\\java\\model\\6_Recommend.py");
+         ProcessBuilder processBuilder = new ProcessBuilder("python", "C:\\JavaProgram\\planit\\src\\main\\java\\model\\6_Recommend2.py");
          processBuilder.environment().put("PYTHONIOENCODING", "UTF-8");
          Process process = processBuilder.start();
          

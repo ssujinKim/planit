@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 색상 추출 UDF
-
 # In[1]:
 
 
@@ -107,12 +105,15 @@ def process_single_image(image, colors_dict):
         }
 
         cluster_info_list.append(cluster_info)
+    
+    return img_rgb  # img_rgb 반환
 
 
-def represent_color(df):
+def represent_color(df, image_size):
     result_df = df.groupby(['Closest Color'])['Frequency'].sum().reset_index()
-    result_df['Frequency Ratio'] = result_df['Frequency'] / 150000
-    represent_colors = []  # 이름 변경: represent_color -> represent_colors
+    result_df['Frequency Ratio'] = result_df['Frequency'] / (image_size[0] * image_size[1])
+
+    represent_colors = []  
 
     # result_df에서 Frequency Ratio의 최대값 찾기
     max_freq_ratio = result_df['Frequency Ratio'].max()
@@ -125,16 +126,7 @@ def represent_color(df):
         max_freq_color = result_df.loc[result_df['Frequency Ratio'].idxmax(), 'Closest Color']
         represent_colors.append(max_freq_color)
 
-    # 결과 출력
-    # print("Represent Color:", represent_colors)
-    return represent_colors  # 수정: 결과를 반환하도록 변경
-
-
-# # 이미지 분류 모델
-
-# In[2]:
-
-
+    return represent_colors
 import os
 import numpy as np
 import pandas as pd
@@ -165,8 +157,6 @@ class_generator = classGen.flow_from_directory(
 )
 
 
-# In[21]:
-
 
 result_colors = []
 max_pre = []
@@ -177,14 +167,22 @@ target_size = (224, 224)  # 모델이 학습시킨 이미지 사이즈와 동일
 # 이미지 불러오기
 image = cv.imread(img_path)
 
-# 함수 호출
-process_single_image(image, colors_dict)
+# 함수 호출 및 img_rgb 반환
+img_rgb = process_single_image(image, colors_dict)
+
+# 이미지 크기를 얻어옴
+image_size = img_rgb.shape[:2]
+
 df = pd.DataFrame(cluster_info_list)
 
-# represent_color 함수 결과를 result_colors 리스트에 추가
-current_result_colors = represent_color(df)
-result_colors.append(current_result_colors)
-print("Current Result Colors:", current_result_colors)  # 디버깅용 출력
+# represent_color 함수 호출
+current_result_colors = represent_color(df, image_size)
+
+# Frequency의 합이 높은 순으로 정렬
+current_result_colors.sort(key=lambda color: df[df['Closest Color'] == color]['Frequency'].sum(), reverse=True)
+
+# 이미지에 대한 색상 추출 결과를 출력
+print("Current Result Colors:", current_result_colors)  
 
 # 이미지 전처리
 img = load_img(img_path, target_size=target_size)
@@ -208,36 +206,20 @@ sorted_pre_dict = sorted(pre_dict.items(), key=lambda x: x[1], reverse=True)
 for key, value in sorted_pre_dict:
     print(f"{key}: {value}%")
 
+# 카테고리와 색상 결과 출력
 if max(pre_dict.values()) < 40:
     print('\n\n다른 사진을 업로드 해주세요!\n\n')
 else:
     max_pre = max(pre_dict, key=pre_dict.get)
     print('카테고리: ', max_pre)
+    #print("Final Result Colors:", current_result_colors)
     #print(recommend_csv.loc[recommend_csv['토픽'] == max_pre, :])
 
-
-# result_colors 리스트 출력
-#print("Final Result Colors:", result_colors)
-
-
-# # 여행지 추천
-
-# In[14]:
-
-
 # result_colors를 flatten하여 리스트 생성
-flat_result_colors = [color for sublist in result_colors for color in sublist]
-
-
-# In[15]:
-
+flat_result_colors = current_result_colors
 
 img_des = recommend_csv.loc[(recommend_csv['토픽'] == max_pre), :]
 img_des
-
-
-# In[16]:
-
 
 col_img_des = recommend_csv.loc[(recommend_csv['토픽'] == max_pre) & (recommend_csv['Closest Color'].isin(flat_result_colors)), :]
 
@@ -251,5 +233,8 @@ color_res = col_img_des['Closest Color'].drop_duplicates()
 for i in range(len(color_res)):
     print(color_res.values[i])
     
-# print(col_img_des)
-# In[ ]:
+#print(col_img_des)
+
+
+
+
